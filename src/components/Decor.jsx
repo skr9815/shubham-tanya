@@ -1,6 +1,7 @@
-// Hand-drawn SVG ornaments: marigold toran, mandala, diya and palace silhouette.
+// Hand-drawn SVG ornaments: marigold toran, mandala, diya, palace silhouette and Ganesha logo.
 
-const MARIGOLD = ['#f59e0b', '#ea580c', '#fbbf24']
+// rose and jasmine garland, matching the flowers in the artwork
+const GARLAND = ['#e8a3a8', '#fbf3ea', '#c9536d']
 
 export function Toran({ swags = 10 }) {
   const w = 1200
@@ -13,20 +14,20 @@ export function Toran({ swags = 10 }) {
       const t = i / 14
       const x = x0 + t * step
       const y = 8 + Math.sin(Math.PI * t) * 34
-      dots.push(<circle key={`d${s}-${i}`} cx={x} cy={y} r="7" fill={MARIGOLD[(s + i) % 3]} />)
+      dots.push(<circle key={`d${s}-${i}`} cx={x} cy={y} r="7" fill={GARLAND[(s + i) % 3]} />)
     }
     // hanging strand with a mango leaf at each join
     const hx = x0
     for (let j = 0; j < 5; j++) {
-      strands.push(<circle key={`h${s}-${j}`} cx={hx} cy={14 + j * 12} r="5.5" fill={MARIGOLD[j % 3]} />)
+      strands.push(<circle key={`h${s}-${j}`} cx={hx} cy={14 + j * 12} r="5.5" fill={GARLAND[j % 3]} />)
     }
     strands.push(
-      <path key={`l${s}`} d={`M${hx} 70 q -9 16 0 30 q 9 -14 0 -30z`} fill="#15803d" />,
+      <path key={`l${s}`} d={`M${hx} 70 q -9 16 0 30 q 9 -14 0 -30z`} fill="#6b8a5a" />,
     )
   }
   return (
     <svg className="toran" viewBox={`0 0 ${w} 105`} preserveAspectRatio="none" aria-hidden="true">
-      <rect x="0" y="0" width={w} height="10" fill="#7a1f2b" />
+      <rect x="0" y="0" width={w} height="10" fill="#8e3b55" />
       {strands}
       {dots}
     </svg>
@@ -116,6 +117,29 @@ export function Palace({ className = '' }) {
         <path d="M550 320 V210 C 550 140, 650 140, 650 210 V320z" />
         <path d="M85 320 V240 C 85 205, 145 205, 145 240 V320z" />
         <path d="M1055 320 V240 C 1055 205, 1115 205, 1115 240 V320z" />
+      </g>
+    </svg>
+  )
+}
+
+export function Ganesha({ className = '', size = 100 }) {
+  return (
+    <svg className={className} width={size} height={size * 1.06} viewBox="0 0 100 106" role="img" aria-label="Shri Ganesh">
+      <g fill="none" stroke="#9a6a1c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M50 2v4" />
+        <circle cx="50" cy="8" r="2" fill="#e8c46a" />
+        <path d="M44 20 46 10H54L56 20Z" fill="#e8c46a" />
+        <path d="M38 31 42 20H58L62 31Z" fill="#e8c46a" />
+        <path d="M33 38Q50 30 67 38L64 31H36Z" fill="#e8c46a" />
+        <circle cx="50" cy="25.5" r="1.6" fill="#9a6a1c" stroke="none" />
+        <path d="M34 41C22 31 6 37 7 53 8 66 20 73 35 65" fill="#f6e7bd" />
+        <path d="M66 41C78 31 94 37 93 53 92 66 80 73 65 65" fill="#f6e7bd" />
+        <path d="M33 38Q50 32 67 38C69 50 67 62 59 68 59 78 61 86 66 89L53 98C45 91 43 80 42 68 33 62 31 50 33 38Z" fill="#fff8ec" stroke="none" />
+        <path d="M33 38C31 50 33 62 42 68 43 80 44 90 51 97 57 103 70 101 71 92 72 85 63 83 61 89 60 93 65 95 67 92M67 38C69 50 67 62 59 68 58 76 59 82 62 86" />
+        <path d="M38 51Q41 48.5 44 51M56 51Q59 48.5 62 51" />
+        <path d="M47 39Q50 46 53 39" strokeWidth="1.6" />
+        <circle cx="50" cy="45" r="1.4" fill="#c2410c" stroke="none" />
+        <path d="M42 64 37 72 44 67.5" fill="#fff8ec" />
       </g>
     </svg>
   )

@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { wedding } from '../config.js'
 
 const links = [
-  ['story', 'Our Story'],
+  ['family', 'Family'],
   ['events', 'Events'],
   ['venue', 'Venue'],
+  ['calendar', 'Save the Date'],
   ['rsvp', 'RSVP'],
 ]
 

@@ -9,7 +9,7 @@ export default function Hero() {
       <Mandala className="hero-mandala right" size={260} />
       <div className="hero-inner">
         <div className="ganesh-frame">
-          <img src="images/ganesh-ji.jpg" alt="Lord Ganesha" />
+          <img src="/images/ganpati-ji-face.jpg" alt="Lord Ganesha" />
         </div>
         <p className="ganesh">॥ श्री गणेशाय नमः ॥</p>
         <p className="shloka">
