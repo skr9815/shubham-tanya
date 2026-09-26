@@ -1,26 +1,30 @@
 :root {
   --maroon: #7a1f2b;
-  --maroon-dark: #5a1520;
-  --gold: #c9a14a;
-  --gold-light: #f3e3b5;
-  --cream: #fffaf0;
-  --cream-alt: #fbf1dc;
+  --maroon-dark: #4a0f18;
+  --gold: #d4a94a;
+  --gold-light: #f6e7bd;
+  --saffron: #ea580c;
+  --cream: #fff8ec;
+  --cream-alt: #fbeed6;
   --text: #3d2b1f;
   --script: 'Great Vibes', cursive;
   --serif: 'Cormorant Garamond', serif;
   --sans: 'Poppins', sans-serif;
+  --hindi: 'Tiro Devanagari Hindi', serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--sans); color: var(--text); background: var(--cream); line-height: 1.6; }
+body { font-family: var(--sans); color: var(--text); background: var(--cream); line-height: 1.6; overflow-x: hidden; }
 a { color: inherit; }
+img { max-width: 100%; }
 
 /* Nav */
 .nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.8rem 1.5rem; background: rgba(90, 21, 32, 0.92); backdrop-filter: blur(6px);
+  padding: 0.7rem 1.5rem; background: rgba(74, 15, 24, 0.92); backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(212,169,74,0.4);
 }
 .nav-logo { font-family: var(--script); font-size: 1.8rem; color: var(--gold-light); text-decoration: none; }
 .nav ul { display: flex; gap: 1.5rem; list-style: none; }
@@ -28,92 +32,158 @@ a { color: inherit; }
 .nav ul a:hover { color: #fff; }
 .nav-toggle { display: none; background: none; border: 0; color: var(--gold-light); font-size: 1.6rem; cursor: pointer; }
 
-/* Hero */
+/* Hero — illuminated palace behind the invitation card */
 .hero {
-  min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 6rem 1rem 3rem;
+  position: relative; min-height: 100vh; display: grid; place-items: center; text-align: center;
+  padding: 8rem 1rem 4rem; overflow: hidden; color: var(--gold-light);
   background:
-    radial-gradient(circle at 50% 40%, rgba(201,161,74,0.25), transparent 60%),
-    linear-gradient(160deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-  color: var(--gold-light);
+    linear-gradient(180deg, rgba(74,15,24,0.75) 0%, rgba(40,6,12,0.55) 45%, rgba(74,15,24,0.92) 100%),
+    url('/images/palace-night.jpg') center 60% / cover no-repeat,
+    var(--maroon-dark);
 }
-.hero-inner { max-width: 720px; border: 1px solid rgba(201,161,74,0.5); padding: 3rem 2rem; border-radius: 4px; outline: 1px solid rgba(201,161,74,0.25); outline-offset: 8px; animation: fadeUp 1.2s ease both; }
-.ganesh { font-family: var(--serif); letter-spacing: 2px; margin-bottom: 1rem; }
-.eyebrow { text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; }
-.names { font-family: var(--script); font-weight: 400; font-size: clamp(3.5rem, 11vw, 7rem); color: #fff; line-height: 1.2; margin: 1rem 0; }
+.toran { position: absolute; top: 56px; left: 0; width: 100%; height: 90px; z-index: 2; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.35)); }
+.hero-mandala { position: absolute; color: var(--gold); opacity: 0.35; animation: spin 80s linear infinite; }
+.hero-mandala.left { top: 22%; left: -90px; }
+.hero-mandala.right { bottom: 6%; right: -90px; animation-direction: reverse; }
+
+.hero-inner {
+  position: relative; z-index: 3; max-width: 720px; width: 100%;
+  background: rgba(74, 15, 24, 0.72); backdrop-filter: blur(3px);
+  border: 2px solid var(--gold); padding: 2.5rem 2rem 3rem; border-radius: 180px 180px 8px 8px;
+  outline: 1px solid rgba(212,169,74,0.5); outline-offset: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: fadeUp 1.2s ease both;
+}
+.ganesh-frame {
+  width: 150px; height: 190px; margin: 0 auto 1rem; overflow: hidden;
+  border-radius: 75px 75px 10px 10px; border: 3px solid var(--gold);
+  box-shadow: 0 0 0 5px rgba(212,169,74,0.25), 0 0 40px rgba(251,191,36,0.55);
+}
+.ganesh-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+.ganesh { font-family: var(--hindi); font-size: 1.4rem; color: #fde68a; }
+.shloka { font-family: var(--hindi); font-size: 0.95rem; opacity: 0.85; margin: 0.4rem 0 1.2rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; color: var(--gold); }
+.names { font-family: var(--script); font-weight: 400; font-size: clamp(3.2rem, 11vw, 6.5rem); color: #fff; line-height: 1.15; margin: 0.6rem 0 0.2rem; text-shadow: 0 0 25px rgba(251,191,36,0.45); }
 .amp { color: var(--gold); }
-.invite { font-family: var(--serif); font-style: italic; font-size: 1.3rem; }
-.divider { color: var(--gold); font-size: 2rem; margin: 1rem 0; }
+.names-hindi { font-family: var(--hindi); font-size: 1.4rem; color: var(--gold-light); margin-bottom: 0.8rem; }
+.invite { font-family: var(--serif); font-style: italic; font-size: 1.25rem; max-width: 520px; margin: 0 auto; }
+.divider { color: var(--gold); font-size: 1.2rem; letter-spacing: 8px; margin: 1rem 0; }
 .hero-date { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: #fff; }
-.hero-city { letter-spacing: 3px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 2rem; }
+.hero-city { letter-spacing: 3px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 1.8rem; }
 
 .btn {
-  display: inline-block; padding: 0.8rem 2.2rem; border: 1px solid var(--gold); background: var(--gold);
-  color: var(--maroon-dark); text-decoration: none; font-family: var(--sans); font-size: 0.9rem;
-  letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; border-radius: 2px;
+  display: inline-block; padding: 0.8rem 2.2rem; border: 1px solid var(--gold);
+  background: linear-gradient(135deg, #f3d27a, var(--gold));
+  color: var(--maroon-dark); text-decoration: none; font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; border-radius: 30px;
 }
 .btn:hover { background: transparent; color: var(--gold); }
 
 /* Sections */
-.section, .countdown { padding: 5rem 1.5rem; text-align: center; }
+.section, .countdown { position: relative; padding: 5rem 1.5rem; text-align: center; }
 .section-alt { background: var(--cream-alt); }
-.section-title { font-family: var(--script); font-weight: 400; font-size: clamp(2.5rem, 7vw, 3.8rem); color: var(--maroon); margin-bottom: 2.5rem; }
-.section-title::after { content: '❦'; display: block; font-family: var(--serif); font-size: 1.2rem; color: var(--gold); }
-.subtitle { margin: -1.5rem 0 2rem; font-family: var(--serif); font-size: 1.2rem; font-style: italic; }
+.section-title { font-family: var(--script); font-weight: 400; font-size: clamp(2.5rem, 7vw, 3.8rem); color: var(--maroon); margin-bottom: 2.5rem; position: relative; }
+.section-title::after { content: '❁'; display: block; font-family: var(--serif); font-size: 1.3rem; color: var(--gold); }
+.section-title.light { color: var(--gold-light); }
+.subtitle { margin: -1.8rem 0 2.5rem; font-family: var(--hindi); font-size: 1.15rem; }
+.subtitle.light { color: var(--gold); }
 
-/* Countdown */
-.countdown { background: var(--cream-alt); }
+/* Countdown — faint Ganesh ji watermark */
+.countdown { background: var(--cream-alt); overflow: hidden; }
+.countdown::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('/images/ganesh-full.jpg') center / contain no-repeat;
+  opacity: 0.1; filter: sepia(0.6);
+}
+.countdown > * { position: relative; }
 .timer { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-.timer-box { width: 110px; padding: 1.2rem 0; background: #fff; border: 1px solid var(--gold); border-radius: 4px; box-shadow: 0 6px 20px rgba(122,31,43,0.08); }
+.timer-box { width: 110px; padding: 1.2rem 0; background: rgba(255,255,255,0.85); border: 1px solid var(--gold); border-radius: 60px 60px 8px 8px; box-shadow: 0 6px 20px rgba(122,31,43,0.1); }
 .timer-num { display: block; font-family: var(--serif); font-size: 2.6rem; font-weight: 600; color: var(--maroon); }
 .timer-label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
 
 /* Story */
 .timeline { max-width: 700px; margin: 0 auto; position: relative; }
 .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--gold); }
-.timeline-item { position: relative; background: #fff; border: 1px solid var(--gold-light); padding: 1.5rem; margin: 0 auto 2rem; max-width: 420px; border-radius: 4px; }
+.timeline-item { position: relative; background: #fff; border: 1px solid var(--gold-light); padding: 1.5rem; margin: 0 auto 2rem; max-width: 420px; border-radius: 8px; box-shadow: 0 6px 18px rgba(122,31,43,0.06); }
 .timeline-year { display: inline-block; background: var(--maroon); color: var(--gold-light); padding: 0.2rem 1rem; border-radius: 20px; font-size: 0.85rem; margin-bottom: 0.5rem; }
 .timeline-item h3 { font-family: var(--serif); font-size: 1.6rem; color: var(--maroon); }
 
-/* Events */
-.events { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-.event-card { background: #fff; padding: 2rem 1.5rem; border-top: 4px solid var(--gold); border-radius: 4px; box-shadow: 0 8px 24px rgba(122,31,43,0.08); transition: transform 0.3s; }
+/* Events — palace backdrop */
+.events-section {
+  background:
+    linear-gradient(rgba(74,15,24,0.88), rgba(74,15,24,0.94)),
+    url('/images/palace-night.jpg') center / cover fixed;
+}
+.events { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1150px; margin: 0 auto; }
+.event-card {
+  position: relative; background: var(--cream); padding: 2.2rem 1.4rem 1.6rem;
+  border: 2px solid var(--gold); border-radius: 120px 120px 10px 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35); transition: transform 0.3s;
+}
+.event-card::before { content: ''; position: absolute; inset: 6px; border: 1px dashed rgba(212,169,74,0.6); border-radius: 114px 114px 6px 6px; pointer-events: none; }
 .event-card:hover { transform: translateY(-6px); }
-.event-icon { font-size: 2.5rem; }
-.event-card h3 { font-family: var(--serif); font-size: 1.7rem; color: var(--maroon); margin: 0.5rem 0; }
+.event-icon { font-size: 2.6rem; }
+.event-hindi { font-family: var(--hindi); color: var(--saffron); font-size: 1.1rem; }
+.event-card h3 { font-family: var(--serif); font-size: 1.6rem; color: var(--maroon); line-height: 1.2; margin: 0.2rem 0 0.6rem; }
 .event-date { font-weight: 500; }
-.event-venue { margin-top: 0.5rem; }
-.event-dress { font-size: 0.85rem; color: var(--maroon); font-style: italic; margin-top: 0.3rem; }
+.event-venue { margin-top: 0.6rem; }
+.event-venue small { color: #7c5f47; }
+.event-dress { font-size: 0.85rem; color: var(--maroon); font-style: italic; margin-top: 0.4rem; }
+.event-map { display: inline-block; margin-top: 0.8rem; color: var(--saffron); font-weight: 500; font-size: 0.9rem; text-decoration: none; }
+.event-map:hover { text-decoration: underline; }
+.diyas { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; }
+.diya .flame { transform-origin: 32px 30px; animation: flicker 1.4s ease-in-out infinite alternate; }
+.diya:nth-child(even) .flame { animation-delay: 0.5s; }
 
-/* Venue */
+/* Venues */
+.venues { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; max-width: 1100px; margin: 0 auto; }
+.venue-label { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--saffron); }
 .venue-name { font-family: var(--serif); font-size: 1.8rem; font-weight: 600; color: var(--maroon); }
-.venue-address { margin-bottom: 1.5rem; }
-.map { max-width: 900px; margin: 0 auto 2rem; border: 4px solid #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; }
-.map iframe { display: block; width: 100%; height: 360px; border: 0; }
+.venue-address { margin-bottom: 1.2rem; }
+.map { margin: 0 auto 1.5rem; border: 3px solid var(--gold); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+.map iframe { display: block; width: 100%; height: 300px; border: 0; }
 
 /* RSVP */
 .rsvp-form { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
 .rsvp-form input, .rsvp-form select, .rsvp-form textarea {
-  padding: 0.85rem 1rem; border: 1px solid var(--gold); background: #fff; font-family: var(--sans); font-size: 0.95rem; border-radius: 2px; color: var(--text);
+  padding: 0.85rem 1rem; border: 1px solid var(--gold); background: #fff; font-family: var(--sans); font-size: 0.95rem; border-radius: 6px; color: var(--text);
 }
 .rsvp-form input:focus, .rsvp-form select:focus, .rsvp-form textarea:focus { outline: 2px solid var(--maroon); outline-offset: 1px; }
 .thanks { font-family: var(--serif); font-size: 1.5rem; color: var(--maroon); }
 .contacts { margin-top: 2.5rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
 .contacts a { text-decoration: none; color: var(--maroon); }
 
-/* Footer */
-.footer { background: var(--maroon-dark); color: var(--gold-light); text-align: center; padding: 3rem 1rem; }
+/* Footer with palace silhouette */
+.footer { background: var(--maroon-dark); color: var(--gold-light); text-align: center; }
+.footer-palace { display: block; width: 100%; height: auto; max-height: 220px; color: var(--gold); opacity: 0.9; background: var(--cream-alt); }
+.footer-palace .palace-cut { fill: var(--cream-alt); }
+.footer-body { padding: 2.5rem 1rem 2rem; }
 .footer-names { font-family: var(--script); font-size: 2.8rem; color: #fff; }
 .hashtag { margin-top: 0.5rem; color: var(--gold); letter-spacing: 1px; }
+.credits { margin-top: 1.5rem; font-size: 0.7rem; opacity: 0.6; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes flicker { from { transform: scale(1) rotate(-3deg); } to { transform: scale(1.12, 1.2) rotate(3deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+}
 
 @media (max-width: 640px) {
   .nav-toggle { display: block; }
   .nav ul { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--maroon-dark); }
   .nav ul.open { display: flex; }
   .nav ul li a { display: block; padding: 0.9rem 1.5rem; }
-  .hero-inner { padding: 2rem 1.2rem; }
+  .toran { height: 60px; }
+  .hero { padding-top: 7rem; }
+  .hero-inner { padding: 2rem 1.1rem 2.5rem; border-radius: 120px 120px 8px 8px; }
+  .ganesh-frame { width: 120px; height: 150px; }
+  .shloka { font-size: 0.8rem; }
   .timer-box { width: 72px; }
   .timer-num { font-size: 1.8rem; }
   .timeline::before { display: none; }
+  .events-section { background-attachment: scroll; }
+  .venues { grid-template-columns: 1fr; }
+  .diyas { gap: 1rem; }
 }

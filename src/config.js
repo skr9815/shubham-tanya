@@ -1,32 +1,48 @@
 // ✏️ Edit everything about the wedding here.
+// Images live in public/images (Ganesh ji: Ravi Varma Press, public domain; palace: Mysuru Palace by Ingo Mehling, CC BY-SA 4.0).
+const gwalior = {
+  name: 'Enjoy Resort',
+  address: 'Shivpuri Link Rd, Gwalior, Madhya Pradesh 474001, India',
+  mapQuery: 'Enjoy Resort, Shivpuri Link Rd, Gwalior, Madhya Pradesh 474001',
+  mapLink: 'https://maps.app.goo.gl/7wE7a74Bm4Z2qNQJ9',
+}
+
+const begusarai = {
+  name: 'Reception Venue',
+  address: 'Begusarai, Bihar, India',
+  mapQuery: 'Begusarai, Bihar',
+  mapLink: 'https://maps.app.goo.gl/E6xEkUsEHAJ1HZM17',
+}
+
 export const wedding = {
   groom: 'Shubham',
   bride: 'Tanya',
+  groomHindi: 'शुभम',
+  brideHindi: 'तान्या',
   hashtag: '#ShubhamWedsTanya',
-  // Main ceremony date/time (used for the countdown), in local time.
-  date: '2026-12-12T19:00:00',
-  displayDate: 'Saturday, 12th December 2026',
-  city: 'New Delhi, India',
+  // Wedding day, used for the countdown (IST).
+  date: '2026-11-30T18:00:00+05:30',
+  displayDate: 'Monday, 30th November 2026',
+  city: 'Gwalior, Madhya Pradesh',
   families: {
-    groom: 'Mr. & Mrs. Kumar',
-    bride: 'Mr. & Mrs. Sharma',
+    groom: 'Groom’s Family',
+    bride: 'Bride’s Family',
   },
   story: [
-    { year: '2019', title: 'First Meeting', text: 'A chance meeting that neither of us knew would change everything.' },
-    { year: '2022', title: 'Falling in Love', text: 'Endless conversations, long drives and a friendship that became love.' },
-    { year: '2026', title: 'The Proposal', text: 'One question, one answer — and a forever that begins now.' },
+    { year: 'Pehli Mulaqat', title: 'First Meeting', text: 'A chance meeting that neither of us knew would change everything.' },
+    { year: 'Pyaar', title: 'Falling in Love', text: 'Endless conversations, long drives and a friendship that became love.' },
+    { year: 'Rishta', title: 'Families United', text: 'With the blessings of our elders, two families become one.' },
   ],
   events: [
-    { name: 'Haldi', icon: '🌼', date: 'Thursday, 10 Dec 2026', time: '10:00 AM', venue: 'Family Residence', dress: 'Yellow' },
-    { name: 'Mehendi & Sangeet', icon: '🎶', date: 'Friday, 11 Dec 2026', time: '6:00 PM', venue: 'The Grand Lawn', dress: 'Green & Pink' },
-    { name: 'Wedding Ceremony', icon: '🔥', date: 'Saturday, 12 Dec 2026', time: '7:00 PM', venue: 'Royal Palace Banquet', dress: 'Traditional' },
-    { name: 'Reception', icon: '🥂', date: 'Sunday, 13 Dec 2026', time: '7:30 PM', venue: 'Royal Palace Banquet', dress: 'Formal' },
+    { name: 'Haldi Carnival', hindi: 'हल्दी', icon: '🌼', date: 'Sunday, 29 Nov 2026', time: 'Morning', venue: gwalior, dress: 'Shades of Yellow' },
+    { name: 'Engagement & Sangeet', hindi: 'सगाई एवं संगीत', icon: '💍', date: 'Sunday, 29 Nov 2026', time: 'Evening onwards', venue: gwalior, dress: 'Indo-Western Glam' },
+    { name: 'Wedding Ceremony', hindi: 'शुभ विवाह', icon: '🪔', date: 'Monday, 30 Nov 2026', time: 'Evening onwards', venue: gwalior, dress: 'Traditional Ethnic' },
+    { name: 'Reception', hindi: 'प्रीतिभोज', icon: '🥂', date: 'Saturday, 5 Dec 2026', time: 'Evening onwards', venue: begusarai, dress: 'Festive Formal' },
   ],
-  venue: {
-    name: 'Royal Palace Banquet',
-    address: '123 Wedding Lane, New Delhi, India',
-    mapQuery: 'New Delhi, India',
-  },
+  venues: [
+    { ...gwalior, label: 'Haldi · Engagement · Sangeet · Wedding' },
+    { ...begusarai, label: 'Reception' },
+  ],
   contacts: [
     { name: 'Shubham', phone: '+91 98765 43210' },
     { name: 'Tanya', phone: '+91 91234 56789' },

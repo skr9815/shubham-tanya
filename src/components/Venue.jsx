@@ -1,22 +1,26 @@
 import { wedding } from '../config.js'
 
 export default function Venue() {
-  const q = encodeURIComponent(wedding.venue.mapQuery)
   return (
     <section id="venue" className="section">
-      <h2 className="section-title">Venue</h2>
-      <p className="venue-name">{wedding.venue.name}</p>
-      <p className="venue-address">{wedding.venue.address}</p>
-      <div className="map">
-        <iframe
-          title="Venue map"
-          src={`https://maps.google.com/maps?q=${q}&output=embed`}
-          loading="lazy"
-        />
+      <h2 className="section-title">Venues</h2>
+      <div className="venues">
+        {wedding.venues.map((v) => (
+          <div key={v.mapLink} className="venue">
+            <p className="venue-label">{v.label}</p>
+            <p className="venue-name">{v.name}</p>
+            <p className="venue-address">{v.address}</p>
+            <div className="map">
+              <iframe
+                title={`Map of ${v.name}`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(v.mapQuery)}&output=embed`}
+                loading="lazy"
+              />
+            </div>
+            <a className="btn" href={v.mapLink} target="_blank" rel="noreferrer">Open in Google Maps</a>
+          </div>
+        ))}
       </div>
-      <a className="btn" href={`https://www.google.com/maps/search/?api=1&query=${q}`} target="_blank" rel="noreferrer">
-        Get Directions
-      </a>
     </section>
   )
 }
