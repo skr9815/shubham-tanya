@@ -1,19 +1,47 @@
 import { useEffect, useRef, useState } from 'react'
 import { wedding } from '../config.js'
 
+// The song plays this many times in a row, then stops (the music button can start it again)
+const MAX_PLAYS = 2
+
 export default function Music() {
   const audio = useRef(null)
+  const plays = useRef(0)
+  const resumeOnReturn = useRef(false)
   const [playing, setPlaying] = useState(false)
   const [opened, setOpened] = useState(false)
   const [closing, setClosing] = useState(false)
 
-  const play = () => audio.current.play().then(() => setPlaying(true)).catch(() => {})
+  // `playing` follows the audio element's own play/pause events
+  const play = () => audio.current.play().catch(() => {})
 
   useEffect(() => {
     audio.current.volume = 0.4
-    // Some browsers allow autoplay (e.g. on repeat visits); if so, skip the welcome screen
-    audio.current.play().then(() => { setPlaying(true); setOpened(true) }).catch(() => {})
+    // Some browsers allow autoplay (e.g. on repeat visits); if so, skip the welcome screen.
+    // Never start in a background tab.
+    if (!document.hidden) audio.current.play().then(() => setOpened(true)).catch(() => {})
   }, [])
+
+  // Pause when the guest switches away from the tab, and pick up again when they come back
+  useEffect(() => {
+    const onVisibility = () => {
+      const el = audio.current
+      if (document.hidden) {
+        resumeOnReturn.current = !el.paused
+        el.pause()
+      } else if (resumeOnReturn.current) {
+        resumeOnReturn.current = false
+        play()
+      }
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => document.removeEventListener('visibilitychange', onVisibility)
+  }, [])
+
+  const onEnded = () => {
+    plays.current += 1
+    if (plays.current < MAX_PLAYS) play()
+  }
 
   useEffect(() => {
     document.body.style.overflow = opened ? '' : 'hidden'
@@ -29,13 +57,23 @@ export default function Music() {
   }
 
   const toggle = () => {
-    if (audio.current.paused) play()
-    else { audio.current.pause(); setPlaying(false) }
+    if (audio.current.paused) {
+      // After the song has finished its plays, the button starts a fresh round
+      if (plays.current >= MAX_PLAYS) plays.current = 0
+      play()
+    } else audio.current.pause()
   }
 
   return (
     <>
-      <audio ref={audio} src="/music/jodha_flute.mp3" loop preload="auto" />
+      <audio
+        ref={audio}
+        src="/music/jodha_flute.mp3"
+        preload="auto"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onEnded={onEnded}
+      />
       {!opened && (
         <div className={`welcome${closing ? ' closing' : ''}`}>
           <div className="welcome-card">
