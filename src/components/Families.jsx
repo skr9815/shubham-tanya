@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { wedding } from '../config.js'
-import { Ganesha, Mandala } from './Decor.jsx'
 
 function FamilyCard({ side, name, family }) {
   return (
@@ -44,9 +43,8 @@ export default function Families() {
       <div className="families">
         <FamilyCard side="groom" name={wedding.groom} family={groom} />
         <div className="family-union" aria-hidden="true">
-          <Mandala className="family-mandala" size={170} />
-          <Ganesha className="family-ganesha" size={70} />
-          <span className="family-amp">&</span>
+          {/* Gathbandhan: the two families' dupattas tied together */}
+          <img className="family-knot" src="/images/gathbandhan.jpg" alt="" />
         </div>
         <FamilyCard side="bride" name={wedding.bride} family={bride} />
       </div>

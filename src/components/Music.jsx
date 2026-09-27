@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { wedding } from '../config.js'
+import PetalShower from './PetalShower.jsx'
 
 // The song plays this many times in a row, then stops (the music button can start it again)
 const MAX_PLAYS = 2
@@ -11,6 +12,7 @@ export default function Music() {
   const [playing, setPlaying] = useState(false)
   const [opened, setOpened] = useState(false)
   const [closing, setClosing] = useState(false)
+  const [shower, setShower] = useState(false)
 
   // `playing` follows the audio element's own play/pause events
   const play = () => audio.current.play().catch(() => {})
@@ -53,7 +55,9 @@ export default function Music() {
     if (closing) return
     play()
     setClosing(true)
+    setShower(true)
     setTimeout(() => setOpened(true), 900)
+    setTimeout(() => setShower(false), 7000)
   }
 
   const toggle = () => {
@@ -88,6 +92,7 @@ export default function Music() {
           </div>
         </div>
       )}
+      {shower && <PetalShower />}
       {opened && (
         <button
           className={`music-toggle${playing ? ' playing' : ''}`}

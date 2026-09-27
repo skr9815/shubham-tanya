@@ -1,4 +1,4 @@
-// Hand-drawn SVG ornaments: marigold toran, mandala, diya, palace silhouette and Ganesha logo.
+// Hand-drawn SVG ornaments: marigold toran, mandala, diya and palace silhouette.
 
 // rose and jasmine garland, matching the flowers in the artwork
 const GARLAND = ['#e8a3a8', '#fbf3ea', '#c9536d']
@@ -117,29 +117,6 @@ export function Palace({ className = '' }) {
         <path d="M550 320 V210 C 550 140, 650 140, 650 210 V320z" />
         <path d="M85 320 V240 C 85 205, 145 205, 145 240 V320z" />
         <path d="M1055 320 V240 C 1055 205, 1115 205, 1115 240 V320z" />
-      </g>
-    </svg>
-  )
-}
-
-export function Ganesha({ className = '', size = 100 }) {
-  return (
-    <svg className={className} width={size} height={size * 1.06} viewBox="0 0 100 106" role="img" aria-label="Shri Ganesh">
-      <g fill="none" stroke="#9a6a1c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M50 2v4" />
-        <circle cx="50" cy="8" r="2" fill="#e8c46a" />
-        <path d="M44 20 46 10H54L56 20Z" fill="#e8c46a" />
-        <path d="M38 31 42 20H58L62 31Z" fill="#e8c46a" />
-        <path d="M33 38Q50 30 67 38L64 31H36Z" fill="#e8c46a" />
-        <circle cx="50" cy="25.5" r="1.6" fill="#9a6a1c" stroke="none" />
-        <path d="M34 41C22 31 6 37 7 53 8 66 20 73 35 65" fill="#f6e7bd" />
-        <path d="M66 41C78 31 94 37 93 53 92 66 80 73 65 65" fill="#f6e7bd" />
-        <path d="M33 38Q50 32 67 38C69 50 67 62 59 68 59 78 61 86 66 89L53 98C45 91 43 80 42 68 33 62 31 50 33 38Z" fill="#fff8ec" stroke="none" />
-        <path d="M33 38C31 50 33 62 42 68 43 80 44 90 51 97 57 103 70 101 71 92 72 85 63 83 61 89 60 93 65 95 67 92M67 38C69 50 67 62 59 68 58 76 59 82 62 86" />
-        <path d="M38 51Q41 48.5 44 51M56 51Q59 48.5 62 51" />
-        <path d="M47 39Q50 46 53 39" strokeWidth="1.6" />
-        <circle cx="50" cy="45" r="1.4" fill="#c2410c" stroke="none" />
-        <path d="M42 64 37 72 44 67.5" fill="#fff8ec" />
       </g>
     </svg>
   )

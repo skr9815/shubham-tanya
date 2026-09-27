@@ -1,11 +1,34 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { wedding } from '../config.js'
+import { Mandala } from './Decor.jsx'
 
 // Rose petals drifting down each event screen: [left %, size px, duration s, delay s]
 const PETALS = [
   [6, 14, 11, 0], [18, 10, 14, 3], [29, 16, 12, 6], [41, 11, 15, 1], [52, 13, 13, 8],
   [63, 15, 11, 4], [74, 10, 16, 2], [85, 14, 12, 7], [93, 12, 14, 5], [35, 9, 17, 10],
 ]
+
+// Ornamental band between two event screens: gold lines draw outward from a turning mandala medallion
+function EventDivider() {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setVisible(true); io.disconnect() }
+    }, { threshold: 0.5 })
+    io.observe(ref.current)
+    return () => io.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} className={`event-sep${visible ? ' in' : ''}`} aria-hidden="true">
+      <span className="event-sep-line left" />
+      <span className="event-sep-medallion"><Mandala size={60} /></span>
+      <span className="event-sep-line right" />
+    </div>
+  )
+}
 
 function EventScreen({ event: e, index, total }) {
   const ref = useRef(null)
@@ -23,11 +46,14 @@ function EventScreen({ event: e, index, total }) {
   return (
     <article
       ref={ref}
-      className={`event-screen${visible ? ' in' : ''}`}
-      // Events can bring their own artwork; otherwise the default couple artwork is used
+      className={`event-screen${e.cardSide === 'left' ? ' card-left' : ''}${visible ? ' in' : ''}`}
+      // Events can bring their own artwork (and put the card on the left when the couple is on the right);
+      // otherwise the default couple artwork is used
       style={{
         ...(e.bgLandscape && { '--bg-landscape': `url('${e.bgLandscape}')` }),
         ...(e.bgPortrait && { '--bg-portrait': `url('${e.bgPortrait}')` }),
+        // horizontal focus of the portrait art on narrow screens, when the couple isn't centred
+        ...(e.bgPortraitX && { '--bg-portrait-x': e.bgPortraitX }),
       }}
     >
       <div className="petals" aria-hidden="true">
@@ -61,7 +87,10 @@ export default function Events() {
         <p className="subtitle">Mangal Utsav · मंगल उत्सव</p>
       </header>
       {wedding.events.map((e, i) => (
-        <EventScreen key={e.name} event={e} index={i} total={wedding.events.length} />
+        <Fragment key={e.name}>
+          {i > 0 && <EventDivider />}
+          <EventScreen event={e} index={i} total={wedding.events.length} />
+        </Fragment>
       ))}
     </section>
   )

@@ -12,7 +12,6 @@ export default function Footer() {
         
         <div className="copyright">
           <p>© 2026 {wedding.groom} & {wedding.bride}. All Rights Reserved.</p>
-          <p>Crafted with 🤍 by {wedding.groom}</p>
         </div>
       </div>
     </footer>
