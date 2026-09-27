@@ -373,14 +373,14 @@ img { max-width: 100%; }
   --w: min(100vw, 56.3vh); --w: min(100vw, 56.3svh);
   position: relative; width: var(--w); aspect-ratio: 941 / 1672;
   display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: 13% 8% 7%; color: var(--maroon);
+  padding: 23% 7% 7%; color: var(--maroon);
   background: url('/images/ganpati-ji.jpg') center / cover no-repeat;
   box-shadow: 0 0 60px rgba(107,42,63,0.25); animation: fadeUp 1s ease both;
 }
-.welcome-mantra { font-family: var(--hindi); color: #b5485d; font-size: calc(var(--w) * 0.042); }
-.welcome-names { font-family: var(--script); font-weight: 400; font-size: calc(var(--w) * 0.08); line-height: 1.2; margin-top: calc(var(--w) * 0.01); white-space: nowrap; }
+.welcome-mantra { font-family: var(--hindi); font-weight: 700; color: #b3122e; /* kumkum red */ font-size: calc(var(--w) * 0.052); }
+.welcome-names { font-family: var(--script); font-weight: 400; font-size: calc(var(--w) * 0.086); line-height: 1.2; margin-top: calc(var(--w) * 0.02); white-space: nowrap; }
 .welcome-names span { color: var(--gold); }
-.welcome-sub { font-family: var(--serif); font-size: calc(var(--w) * 0.044); font-style: italic; color: #8a6a64; }
+.welcome-sub { font-family: var(--serif); font-size: calc(var(--w) * 0.055); font-style: italic; font-weight: 700; color: #2f6b3a; /* leaf green, from the artwork */ }
 /* Wide screens: landscape Ganpati ji artwork fills the screen, text and button sit in the open sky on the right */
 @media (min-aspect-ratio: 1/1) {
   .welcome-card {
