@@ -18,7 +18,13 @@ export default function Rsvp() {
   return (
     <section id="rsvp" className="section section-alt">
       <h2 className="section-title">RSVP</h2>
-      <p className="subtitle">Kindly let us know if you can make it</p>
+      <div className="rsvp-note">
+        <p className="rsvp-note-thanks">Thank you for being a part of our lives</p>
+        <p className="rsvp-note-blessing">
+          Kindly grace the occasion with your gracious presence and shower your blessings upon the couple
+          as they begin this beautiful new chapter of their lives together.
+        </p>
+      </div>
       {sent ? (
         <p className="thanks">Thank you, {form.name}! We can't wait to celebrate with you. 💐</p>
       ) : (

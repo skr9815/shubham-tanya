@@ -17,9 +17,9 @@ export default function App() {
       <Countdown />
       <Families />
       <Events />
-      <Venue />
       <SaveTheDate />
       <Rsvp />
+      <Venue />
       <Footer />
       <Music />
     </>

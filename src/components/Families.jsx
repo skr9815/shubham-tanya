@@ -1,9 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 import { wedding } from '../config.js'
+import { Mandala } from './Decor.jsx'
+
+// Gold sparkles sitting on the card's border, twinkling one after another: [top %, left %]
+const SPARKLES = [[0, 36], [8, 11], [34, 0], [62, 0], [90, 0], [100, 30], [100, 70], [90, 100], [62, 100], [34, 100], [8, 89], [0, 64]]
 
 function FamilyCard({ side, name, family }) {
   return (
     <article className={`family-card ${side}`}>
+      <span className="family-crest" aria-hidden="true"><Mandala size={58} /></span>
+      <span className="family-sparkles" aria-hidden="true">
+        {SPARKLES.map(([top, left], i) => (
+          <i key={i} style={{ top: `${top}%`, left: `${left}%`, animationDelay: `${i * 0.33}s` }} />
+        ))}
+      </span>
       <p className="family-hindi">{family.hindi}</p>
       <h3 className="family-title">{family.title}</h3>
       <p className="family-person">{name}</p>

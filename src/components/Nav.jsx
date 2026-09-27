@@ -4,9 +4,9 @@ import { wedding } from '../config.js'
 const links = [
   ['family', 'Family'],
   ['events', 'Events'],
-  ['venue', 'Venue'],
   ['calendar', 'Save the Date'],
   ['rsvp', 'RSVP'],
+  ['venue', 'Venue'],
 ]
 
 export default function Nav() {

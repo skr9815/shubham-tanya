@@ -1,4 +1,5 @@
 import { wedding } from '../config.js'
+import InvitationCard from './InvitationCard.jsx'
 
 export default function Venue() {
   return (
@@ -21,6 +22,7 @@ export default function Venue() {
           </div>
         ))}
       </div>
+      <InvitationCard />
     </section>
   )
 }

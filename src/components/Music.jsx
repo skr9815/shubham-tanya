@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { wedding } from '../config.js'
 import PetalShower from './PetalShower.jsx'
+import ScrollArrow from './ScrollArrow.jsx'
 
 // The song plays this many times in a row, then stops (the music button can start it again)
 const MAX_PLAYS = 2
@@ -93,6 +94,7 @@ export default function Music() {
         </div>
       )}
       {shower && <PetalShower />}
+      {opened && <ScrollArrow />}
       {opened && (
         <button
           className={`music-toggle${playing ? ' playing' : ''}`}

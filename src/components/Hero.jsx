@@ -25,12 +25,12 @@ export default function Hero() {
         </h1>
         <p className="names-hindi">{wedding.groomHindi} ❤ {wedding.brideHindi}</p>
         <p className="invite">
-          With the blessings of Lord Ganesha and our elders, we joyfully invite you to celebrate our wedding
+          With the blessings of Lord Ganesha and our elders, {wedding.families.groom.relation[1].join(' & ')} joyfully
+          invite you to celebrate the wedding of their son
         </p>
         <div className="divider">❁ ❁ ❁</div>
         <p className="hero-date">{wedding.displayDate}</p>
         <p className="hero-city">{wedding.city}</p>
-        <a href="#events" className="btn">View Celebrations</a>
       </div>
     </header>
   )
