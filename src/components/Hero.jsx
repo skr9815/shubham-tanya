@@ -23,10 +23,11 @@ export default function Hero() {
         <h1 className="names">
           {wedding.groom} <span className="amp">&</span> {wedding.bride}
         </h1>
-        <p className="names-hindi">{wedding.groomHindi} ❤ {wedding.brideHindi}</p>
+        <p className="names-hindi">{wedding.groomTitleHindi} {wedding.groomHindi} ❤ {wedding.brideTitleHindi} {wedding.brideHindi}</p>
         <p className="invite">
-          With the blessings of Lord Ganesha and our elders, {wedding.families.groom.relation[1].join(' & ')} joyfully
-          invite you to celebrate the wedding of their son
+          With the blessings of Lord Ganesha and our elders, {wedding.families.groom.parents} joyfully
+          invite you to the wedding of their beloved son <strong>{wedding.groom}</strong> with <strong>{wedding.bride}</strong>,
+          as they begin their journey of forever
         </p>
         <div className="divider">❁ ❁ ❁</div>
         <p className="hero-date">{wedding.displayDate}</p>

@@ -4,7 +4,7 @@ import PetalShower from './PetalShower.jsx'
 import ScrollArrow from './ScrollArrow.jsx'
 
 // The song plays this many times in a row, then stops (the music button can start it again)
-const MAX_PLAYS = 2
+const MAX_PLAYS = 3
 
 export default function Music() {
   const audio = useRef(null)
@@ -83,7 +83,8 @@ export default function Music() {
         <div className={`welcome${closing ? ' closing' : ''}`}>
           <div className="welcome-card">
             <p className="welcome-mantra">॥ श्री गणेशाय नमः ॥</p>
-            <h1 className="welcome-names">{wedding.groom} <span>&</span> {wedding.bride}</h1>
+            <h1 className="welcome-names">{wedding.groom} <span className="weds">weds</span> {wedding.bride}</h1>
+            <p className="welcome-vivah">शुभ विवाह</p>
             <p className="welcome-sub">You are cordially invited</p>
             <button className="welcome-btn" onClick={open}>
               <span className="welcome-sparkle" aria-hidden="true">✦</span>

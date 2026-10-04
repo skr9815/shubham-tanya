@@ -84,7 +84,7 @@ export default function Events() {
     <section id="events" className="events-section">
       <header className="events-head">
         <h2 className="section-title">Wedding Celebrations</h2>
-        <p className="subtitle">Mangal Utsav · मंगल उत्सव</p>
+        <p className="subtitle events-subtitle">Mangalik Karyakram · मांगलिक कार्यक्रम</p>
       </header>
       {wedding.events.map((e, i) => (
         <Fragment key={e.name}>

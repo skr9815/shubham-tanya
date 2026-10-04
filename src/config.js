@@ -21,6 +21,9 @@ export const wedding = {
   bride: 'Tanya',
   groomHindi: 'शुभम',
   brideHindi: 'तान्या',
+  // Blessing titles placed before the Hindi names
+  groomTitleHindi: 'आयुष्मान',
+  brideTitleHindi: 'आयुष्मती',
   hashtag: '#ShubhamWedsTanya',
   // Wedding day, used for the countdown (IST).
   date: '2026-11-30T20:00:00+05:30',
@@ -30,15 +33,17 @@ export const wedding = {
     groom: {
       title: 'Groom’s Family',
       hindi: 'वर पक्ष',
-      relation: ['S/O', ['Shri Manikant Singh', 'Smt. Nutan Kumari']],
-      grandRelation: ['Grand S/O', ['Late Shri RamNandan Singh', 'Late Smt. Vina Devi']],
+      relation: ['S/o', ['Shri Manikant', 'Smt. Nutan Kumari']],
+      // Full names for the invitation line in the hero
+      parents: 'Shri Manikant & Smt. Nutan Kumari',
+      grandRelation: ['Grand S/o', ['Late Shri RamNandan Singh', 'Late Smt.Vina Rani']],
       address: 'Vina Niwas Harrakh, Begusarai, Bihar',
     },
     bride: {
       title: 'Bride’s Family',
       hindi: 'वधू पक्ष',
-      relation: ['D/O', ['Shri Brijesh Chandil', 'Smt. Vandan Chandil']],
-      grandRelation: ['Grand D/O', ['Late Shri LalChand Chandil', 'Smt. Kamla Devi']],
+      relation: ['D/o', ['Shri Brajesh', 'Smt. Vandana Kumari']],
+      grandRelation: ['Grand D/o', ['Late Shri LalChand', 'Late Smt. Kamla Devi']],
       address: 'Lashkar Gwalior, Madhya Pradesh',
     },
   },

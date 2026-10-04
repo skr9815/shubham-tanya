@@ -20,10 +20,12 @@ function FamilyCard({ side, name, family }) {
       <ul className="family-members">
         {[family.grandRelation, family.relation].map(([label, people], i) => (
           <li key={label} style={{ '--i': i }}>
-            <span className="family-role">{label}</span>
-            {people.map((p, j) => (
-              <span key={p} className="family-name">{p}{j < people.length - 1 && <span className="family-and"> &</span>}</span>
-            ))}
+            <span className="family-name">
+              <span className="family-role">{label}</span>{' '}
+              {people.map((p, j) => (
+                <span key={p}>{p}{j < people.length - 1 && <span className="family-and"> & </span>}</span>
+              ))}
+            </span>
           </li>
         ))}
       </ul>

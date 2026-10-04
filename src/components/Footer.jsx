@@ -1,5 +1,6 @@
 import { wedding } from '../config.js'
 import { Palace } from './Decor.jsx'
+import DevCredit from './DevCredit.jsx'
 
 export default function Footer() {
   return (
@@ -12,6 +13,7 @@ export default function Footer() {
         
         <div className="copyright">
           <p>© 2026 {wedding.groom} & {wedding.bride}. All Rights Reserved.</p>
+          <DevCredit />
         </div>
       </div>
     </footer>
