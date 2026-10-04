@@ -117,7 +117,7 @@ img { max-width: 100%; }
 }
 .invite-card-title { font-family: var(--script); font-weight: 400; font-size: 2.2rem; color: var(--maroon); }
 .invite-card-text { margin: 0.4rem 0 1.4rem; font-family: var(--serif); font-style: italic; font-size: 1.15rem; }
-.invite-card-icon { font-size: 1.8rem; color: var(--maroon); line-height: 1; margin-bottom: 0.4rem; }
+.invite-card-icon { font-size: 2.2rem; color: var(--maroon); line-height: 1; margin-bottom: 0.4rem; }
 .invite-card-box .invite-card-text { flex: 1; }
 .invite-qr { padding: 0.8rem; margin-bottom: 1rem; background: #fff; border: 1px solid var(--gold); border-radius: 12px; }
 .invite-qr svg { display: block; }

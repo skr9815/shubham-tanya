@@ -11,7 +11,13 @@ function DigitalInvitation() {
   const url = wedding.digitalInvitation
   return (
     <div className="invite-card-box">
-      <span className="invite-card-icon" aria-hidden="true">▶</span>
+      <span className="invite-card-icon" aria-hidden="true">
+        {/* Line icon in the site's maroon */}
+        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2.5" y="5" width="19" height="14" rx="3" />
+          <path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" />
+        </svg>
+      </span>
       <h3 className="invite-card-title">Digital Invitation</h3>
       <p className="invite-card-text">View our digital invitation — a special glimpse of our wedding celebrations.</p>
       {url ? (
@@ -29,7 +35,6 @@ function PhotoGallery() {
   return (
     <div className="invite-card-box">
       <span className="invite-card-icon" aria-hidden="true">
-        {/* Simple line camera in the site's maroon, to match the ✉ and ▶ icons */}
         <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
           <circle cx="12" cy="13.5" r="3.5" />
@@ -71,7 +76,12 @@ function PrintedInvitation() {
 
   return (
     <div className="invite-card-box">
-      <span className="invite-card-icon" aria-hidden="true">✉</span>
+      <span className="invite-card-icon" aria-hidden="true">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M3.5 6l8.5 7 8.5-7" />
+        </svg>
+      </span>
       <h3 className="invite-card-title">Invitation Card</h3>
       <p className="invite-card-text">Keep a copy of our invitation — view it here or save it to your phone.</p>
       {ready ? (
