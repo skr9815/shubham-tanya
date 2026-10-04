@@ -109,13 +109,18 @@ img { max-width: 100%; }
 .btn-outline { background: transparent; color: var(--maroon); border-color: var(--maroon); }
 .btn-outline:hover { background: var(--maroon); color: var(--gold-light); }
 
-/* Invitation card download, at the end of the Venue section */
+/* Invitation card, video invitation and photo gallery boxes, at the end of the Venue section */
+.invite-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 3.5rem auto 0; }
 .invite-card-box {
-  max-width: 560px; margin: 3.5rem auto 0; padding: 2rem 1.5rem; text-align: center;
+  display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem; text-align: center;
   background: var(--cream); border: 1px solid var(--gold); border-radius: 16px; box-shadow: 0 10px 28px rgba(142,59,85,0.1);
 }
 .invite-card-title { font-family: var(--script); font-weight: 400; font-size: 2.2rem; color: var(--maroon); }
 .invite-card-text { margin: 0.4rem 0 1.4rem; font-family: var(--serif); font-style: italic; font-size: 1.15rem; }
+.invite-card-icon { font-size: 1.8rem; color: var(--maroon); line-height: 1; margin-bottom: 0.4rem; }
+.invite-card-box .invite-card-text { flex: 1; }
+.invite-qr { padding: 0.8rem; margin-bottom: 1rem; background: #fff; border: 1px solid var(--gold); border-radius: 12px; }
+.invite-qr svg { display: block; }
 .invite-card-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
 .invite-card-soon {
   display: inline-block; padding: 0.8rem 2rem; border-radius: 30px; border: 1px dashed var(--gold);
@@ -384,6 +389,15 @@ img { max-width: 100%; }
 .footer-body { padding: 2.5rem 1rem 2rem; }
 .footer-names { font-family: var(--names); font-style: italic; font-weight: 600; font-size: 2.8rem; color: #fff; }
 .hashtag { margin-top: 0.5rem; color: var(--gold); letter-spacing: 1px; }
+.footer-note {
+  max-width: 620px; margin: 0 auto 2rem; padding: 1rem 1.6rem; border: 2px solid var(--gold); border-radius: 16px;
+  font-family: var(--sans); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.3px; line-height: 1.7; color: var(--gold-light);
+}
+.footer-note-title {
+  display: flex; align-items: center; justify-content: center; gap: 0.7rem; margin-bottom: 0.5rem;
+  font-family: var(--sans); font-style: normal; font-weight: 700; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+}
+.footer-note-title::before, .footer-note-title::after { content: ''; flex: 0 1 40px; height: 1px; background: var(--gold); }
 .credits { margin-top: 1.5rem; font-size: 0.7rem; opacity: 0.6; }
 .copyright { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(201,160,99,0.3); font-size: 0.85rem; letter-spacing: 0.5px; }
 .copyright p + p { margin-top: 0.3rem; color: var(--gold); }

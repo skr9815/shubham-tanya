@@ -8,8 +8,10 @@ import Rsvp from './components/Rsvp.jsx'
 import Footer from './components/Footer.jsx'
 import Nav from './components/Nav.jsx'
 import Music from './components/Music.jsx'
+import { useFrameSync } from './lib/frame.js'
 
 export default function App() {
+  useFrameSync()
   return (
     <>
       <Nav />
