@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { wedding } from '../config.js'
+import { PhoneIcon } from './Decor.jsx'
 
 export default function Rsvp() {
   const [form, setForm] = useState({ name: '', guests: '1', attending: 'Joyfully accepts', message: '' })
@@ -43,7 +44,9 @@ export default function Rsvp() {
       )}
       <div className="contacts">
         {wedding.contacts.map((c) => (
-          <a key={c.name} href={`tel:${c.phone.replace(/\s/g, '')}`}>📞 {c.name}: {c.phone}</a>
+          <a key={c.name} href={`tel:${c.phone.replace(/\s/g, '')}`}>
+            <span className="contact-icon" aria-hidden="true"><PhoneIcon /></span> {c.name}: {c.phone}
+          </a>
         ))}
       </div>
     </section>

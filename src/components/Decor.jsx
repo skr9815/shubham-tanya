@@ -1,4 +1,4 @@
-// Hand-drawn SVG ornaments: marigold toran, mandala, diya and palace silhouette.
+// Hand-drawn SVG ornaments: marigold toran, mandala, diya, palace silhouette and phone handset.
 
 // rose and jasmine garland, matching the flowers in the artwork
 const GARLAND = ['#e8a3a8', '#fbf3ea', '#c9536d']
@@ -118,6 +118,15 @@ export function Palace({ className = '' }) {
         <path d="M85 320 V240 C 85 205, 145 205, 145 240 V320z" />
         <path d="M1055 320 V240 C 1055 205, 1115 205, 1115 240 V320z" />
       </g>
+    </svg>
+  )
+}
+
+// Hand-drawn handset in the site's maroon, shown inside a gold medallion
+export function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+      <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" />
     </svg>
   )
 }
