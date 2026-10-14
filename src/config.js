@@ -71,8 +71,9 @@ export const wedding = {
   // Put the file in the public/ folder with this exact name (a .pdf, .jpg or .png — update the extension here to match).
   // Until the file exists, the buttons show "Invitation card coming soon".
   invitationCard: '/invitation-card.pdf',
-  // Digital (video) invitation on YouTube. Leave empty to show "coming soon".
-  digitalInvitation: '',
+  // Digital (video) invitation: a video file in public/ (plays in a pop-up player) or a YouTube link.
+  // Leave empty to show "coming soon".
+  digitalInvitation: '/video/wedding-invitation.mp4',
   // Photographer's AI face-recognition gallery: guests take a selfie and see only the photos they appear in.
   // Paste the gallery link here; a QR code for it is generated automatically. Leave empty to show "coming soon".
   photoGallery: '',
