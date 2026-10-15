@@ -1,0 +1,103 @@
+/* Events — one full screen per event over the couple artwork; the card sits in the artwork's empty space
+   (the open sky on the right of the landscape art, the cream area at the bottom of the portrait art) */
+.events-section { background: var(--cream-alt); }
+.events-head { padding: 5rem 1.5rem 1rem; text-align: center; }
+.events-subtitle { color: var(--maroon); font-weight: 600; }
+.event-screen {
+  position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
+  /* centre the card over the sky, about 66% across the artwork */
+  padding: 5rem max(1.5rem, calc(34vw - min(230px, 21vw))) 4rem 1.5rem; text-align: center;
+  background: var(--cream-alt);
+}
+.event-screen::before {
+  /* soft blur on the artwork; inset past the edges so the blur doesn't fade them */
+  content: ''; position: absolute; inset: -12px; opacity: 0.78; filter: blur(2.5px);
+  background: var(--bg-landscape, url('/images/events-bg-landscape.jpg')) center / cover no-repeat;
+}
+/* Artwork with the couple on the right: card over the empty space on the left, about 30% across */
+@media (min-aspect-ratio: 1/1) {
+  .event-screen.card-left { align-items: flex-start; padding-left: max(1.5rem, calc(30vw - min(230px, 21vw))); padding-right: 1.5rem; }
+}
+/* Divider between event screens: overlaps the seam between the two artworks */
+.event-sep {
+  position: relative; z-index: 3; height: 84px; margin: -42px 0; pointer-events: none;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: radial-gradient(ellipse 60% 50% at center, rgba(253,247,242,0.95), rgba(253,247,242,0.6) 45%, transparent 75%);
+}
+/* soft cream band across the full width hides the hard edge between two artworks */
+.event-sep::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 34px; transform: translateY(-50%); z-index: -1;
+  background: linear-gradient(180deg, transparent, rgba(253,247,242,0.9) 35%, rgba(253,247,242,0.9) 65%, transparent);
+}
+.event-sep-line {
+  position: relative; flex: 0 1 min(42vw, 600px); height: 4px; border-radius: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold) 25%, #fff3dc 50%, var(--gold) 75%, transparent) 0 0 / 200% 100%;
+}
+.event-sep-line.left { transform-origin: right center; }
+.event-sep-line.right { transform-origin: left center; }
+/* thin second line and a small diamond at the outer end */
+.event-sep-line::before { content: ''; position: absolute; left: 12%; right: 12%; top: 9px; height: 1.5px; background: linear-gradient(90deg, transparent, rgba(201,160,99,0.7), transparent); }
+.event-sep-line::after { content: ''; position: absolute; top: -4px; width: 12px; height: 12px; background: var(--gold); transform: rotate(45deg); }
+.event-sep-line.left::after { left: 18%; }
+.event-sep-line.right::after { right: 18%; }
+.event-sep-medallion {
+  flex: none; display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%;
+  background: var(--cream); border: 2px solid var(--gold); color: #b08850;
+  box-shadow: 0 0 0 4px rgba(201,160,99,0.2), 0 6px 18px rgba(142,59,85,0.2);
+}
+.event-stage { position: relative; z-index: 1; width: min(460px, 42vw); }
+.event-frame {
+  position: relative; z-index: 1; background: rgba(255,249,240,0.86); color: var(--text);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  padding: 2.2rem 2rem 2rem; border: 2px solid var(--gold); border-radius: 230px 230px 12px 12px;
+  outline: 1px solid rgba(201,160,99,0.5); outline-offset: 8px; box-shadow: 0 20px 50px rgba(142,59,85,0.25);
+}
+.event-frame::before { content: ''; position: absolute; inset: 8px; border: 1px dashed rgba(201,160,99,0.6); border-radius: 222px 222px 8px 8px; pointer-events: none; }
+.event-count { font-size: 0.8rem; letter-spacing: 3px; color: #b08850; }
+.event-medallion {
+  display: block; width: 84px; height: 84px; margin: 0.6rem auto 0.4rem; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--gold); box-shadow: 0 0 0 5px rgba(201,160,99,0.25), 0 8px 20px rgba(142,59,85,0.25);
+}
+.event-hindi { font-family: var(--hindi); color: var(--saffron); font-size: 1.5rem; }
+.event-name { font-family: var(--script); font-weight: 400; font-size: clamp(1.9rem, 4.6vw, 2.5rem); color: var(--maroon); line-height: 1.25; }
+.event-divider { color: var(--gold); letter-spacing: -0.05em; margin: 0.6rem 0 1rem; }
+.event-date { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--maroon); }
+.event-time { font-family: var(--serif); font-size: 1.2rem; }
+.event-venue { margin-top: 1.2rem; font-family: var(--serif); font-size: 1.25rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--maroon); }
+.event-city { color: #8a6a64; }
+.event-dress { margin-top: 1.2rem; font-style: italic; color: var(--maroon); font-size: 0.95rem; }
+
+.petals { position: absolute; inset: 0; pointer-events: none; }
+.petals span {
+  position: absolute; top: -40px; border-radius: 80% 0 80% 0; opacity: 0.85;
+  background: linear-gradient(135deg, #f9a8b8, #d94f6b);
+}
+.petals span:nth-child(3n) { background: linear-gradient(135deg, #f5e6cc, #d9b27a); }
+.petals span:nth-child(4n) { background: linear-gradient(135deg, #fff1f2, #f4b6c2); }
+/* Portrait screens: couple at the top of the portrait art, a compact card in the cream space below */
+@media (max-aspect-ratio: 1/1) {
+  .event-screen {
+    justify-content: flex-end; align-items: center; padding: 50svh 1rem 3rem;
+  }
+  .event-screen::before { background-image: var(--bg-portrait, url('/images/events-bg-portrait.jpg')); background-position: var(--bg-portrait-x, center) top; }
+  .event-stage { width: min(100%, 360px); }
+  .event-frame { padding: 1.4rem 1.2rem 1.2rem; border-radius: 180px 180px 10px 10px; outline-offset: 5px; }
+  .event-frame::before { inset: 6px; border-radius: 174px 174px 6px 6px; }
+  .event-count { font-size: 0.7rem; }
+  .event-medallion { width: 56px; height: 56px; margin: 0.3rem auto 0.2rem; }
+  .event-hindi { font-size: 1.15rem; }
+  .event-name { font-size: 2.2rem; }
+  .event-divider { margin: 0.2rem 0 0.4rem; }
+  .event-date { font-size: 1.2rem; }
+  .event-time { font-size: 1rem; }
+  .event-venue { margin-top: 0.5rem; font-size: 1.05rem; }
+  .event-city { font-size: 0.85rem; }
+  .event-dress { margin-top: 0.5rem; font-size: 0.85rem; }
+}
+.diyas { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; }
+.diya .flame { transform-origin: 32px 30px; }
+
+@media (max-width: 640px) {
+  .diyas { gap: 1rem; }
+}

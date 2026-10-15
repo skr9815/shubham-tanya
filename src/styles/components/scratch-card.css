@@ -1,0 +1,25 @@
+/* Scratch card hiding the wedding date */
+.scratch { position: relative; display: inline-block; min-width: min(360px, 100%); padding: 0.9rem 1.6rem; border-radius: 14px; }
+.scratch-foil {
+  position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 14px;
+  cursor: grab; touch-action: none;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+.scratch-foil:active { cursor: grabbing; }
+/* Four-point stars twinkling on the foil */
+.scratch-twinkle {
+  position: absolute; pointer-events: none; z-index: 1;
+  background: radial-gradient(circle, #fff 0%, #fff8e6 45%, #f5e6cc 100%);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  filter: drop-shadow(0 0 3px #fff);
+}
+/* Gold flakes that peel off while scratching, and the sparkle burst when the foil dissolves */
+.scratch-flake, .scratch-sparkle {
+  position: absolute; width: var(--size); height: var(--size); pointer-events: none; z-index: 2;
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+}
+.scratch-flake { background: linear-gradient(135deg, #f5e6cc, #c9a063 60%, #a87a3d); border-radius: 1px; }
+.scratch-sparkle {
+  background: radial-gradient(circle, #fff 0%, #f5e6cc 40%, transparent 70%); border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(245,214,170,0.8);
+}

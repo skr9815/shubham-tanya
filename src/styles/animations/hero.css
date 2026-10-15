@@ -1,0 +1,9 @@
+/* Palace lights twinkle through drifting dot masks; mandalas turn slowly; the card rises in */
+.hero-lights.a { animation: lightsDrift 7s linear infinite, lightsPulse 2.3s ease-in-out infinite alternate; }
+.hero-lights.b { animation: lightsDriftB 5s linear infinite, lightsPulse 1.7s ease-in-out 0.8s infinite alternate; }
+@keyframes lightsDrift { to { -webkit-mask-position: 46px 76px; mask-position: 46px 76px; } }
+@keyframes lightsDriftB { to { -webkit-mask-position: -62px 53px; mask-position: -62px 53px; } }
+@keyframes lightsPulse { from { opacity: 0.15; } to { opacity: 0.6; } }
+.hero-mandala { animation: spin 80s linear infinite; }
+.hero-mandala.right { animation-direction: reverse; }
+.hero-inner { animation: fadeUp 1.2s ease both; }

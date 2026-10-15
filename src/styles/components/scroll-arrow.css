@@ -1,0 +1,11 @@
+/* Scroll arrow: three gold chevrons at the bottom of the screen */
+.scroll-arrow {
+  position: fixed; left: 50%; bottom: 1rem; z-index: 40; translate: -50% 0;
+  display: grid; justify-items: center; pointer-events: none;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+}
+.scroll-arrow i {
+  width: 34px; height: 34px; margin-top: -14px; rotate: 45deg;
+  border-right: 4px solid var(--gold); border-bottom: 4px solid var(--gold); border-radius: 0 0 4px 0;
+}
+.scroll-arrow i:first-child { margin-top: 0; }

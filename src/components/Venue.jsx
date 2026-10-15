@@ -1,12 +1,10 @@
-import { wedding } from '../config.js'
-import InvitationCard from './InvitationCard.jsx'
-
-export default function Venue() {
+// `children` sits below the maps (the invitation cards)
+export default function Venue({ venues, children }) {
   return (
     <section id="venue" className="section">
       <h2 className="section-title">Venues</h2>
       <div className="venues">
-        {wedding.venues.map((v) => (
+        {venues.map((v) => (
           <div key={v.mapLink} className="venue">
             <p className="venue-label">{v.label}</p>
             <p className="venue-name">{v.name}</p>
@@ -22,7 +20,7 @@ export default function Venue() {
           </div>
         ))}
       </div>
-      <InvitationCard />
+      {children}
     </section>
   )
 }

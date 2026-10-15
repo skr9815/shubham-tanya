@@ -1,0 +1,9 @@
+/* Each petal falls with its own drift and spin (set inline from animations/particles.js) */
+.petal-shower span { opacity: 0; animation: petalShower ease-in forwards; }
+@keyframes petalShower {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  8% { opacity: 1; }
+  50% { transform: translate(calc(var(--drift) * -0.4), 55vh) rotate(calc(var(--spin) * 0.5)); }
+  85% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--drift), 110vh) rotate(var(--spin)); }
+}

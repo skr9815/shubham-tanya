@@ -1,0 +1,20 @@
+/* Save the Dates */
+.save-layout { display: grid; grid-template-columns: 1fr minmax(300px, 380px); gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+.save-dates { display: grid; gap: 1rem; }
+.save-date {
+  display: flex; align-items: center; gap: 1.2rem; text-align: left; padding: 1rem 1.2rem;
+  background: var(--cream); border: 1px solid var(--gold); border-radius: 12px; box-shadow: 0 6px 18px rgba(107,42,63,0.08);
+}
+.save-date-day {
+  flex: none; width: 64px; padding: 0.4rem 0; text-align: center; border-radius: 8px;
+  background: var(--maroon); color: var(--gold-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
+}
+.save-date-day span { display: block; font-family: var(--serif); font-size: 1.8rem; font-weight: 600; line-height: 1; }
+.save-date-info { flex: 1; }
+.save-date-name { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--maroon); }
+.save-date .add-cal { margin-top: 0; }
+@media (max-width: 560px) {
+  .save-date { flex-wrap: wrap; }
+  .save-date .add-cal { width: 100%; }
+  .save-date .add-cal-btn { width: 100%; }
+}

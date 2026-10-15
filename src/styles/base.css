@@ -1,0 +1,41 @@
+:root {
+  /* Palette sampled from the couple artwork: deep rose, blush, champagne gold, ivory */
+  --maroon: #8e3b55;
+  --maroon-dark: #6b2a3f;
+  --gold: #c9a063;
+  --gold-light: #f5e6cc;
+  --saffron: #c75b7a;
+  --cream: #fdf7f2;
+  --cream-alt: #f8e8e0;
+  --text: #5b3a36;
+  --script: 'Petit Formal Script', cursive; /* formal script whose S and T stay readable */
+  --names: 'Cormorant Garamond', serif; /* the couple's names: elegant italic serif, no cursive capitals */
+  --serif: 'Cormorant Garamond', serif;
+  --sans: 'Poppins', sans-serif;
+  --hindi: 'Tiro Devanagari Hindi', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); color: var(--text); background: var(--cream); line-height: 1.6; overflow-x: hidden; }
+a { color: inherit; }
+img { max-width: 100%; }
+
+.btn {
+  display: inline-block; padding: 0.8rem 2.2rem; border: 1px solid var(--gold);
+  background: linear-gradient(135deg, #e8cfa0, var(--gold));
+  color: var(--maroon-dark); text-decoration: none; font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 30px;
+}
+.btn:hover { background: transparent; color: var(--gold); }
+.btn-outline { background: transparent; color: var(--maroon); border-color: var(--maroon); }
+.btn-outline:hover { background: var(--maroon); color: var(--gold-light); }
+
+/* Sections */
+.section, .countdown { position: relative; padding: 5rem 1.5rem; text-align: center; }
+.section-alt { background: var(--cream-alt); }
+.section-title { font-family: var(--script); font-weight: 400; font-size: clamp(1.9rem, 5.2vw, 2.9rem); color: var(--maroon); margin-bottom: 2.5rem; position: relative; }
+.section-title::after { content: '❁'; display: block; font-family: var(--serif); font-size: 1.3rem; color: var(--gold); }
+.section-title.light { color: var(--gold-light); }
+.subtitle { margin: -1.8rem 0 2.5rem; font-family: var(--hindi); font-size: 1.15rem; }
+.subtitle.light { color: var(--gold); }

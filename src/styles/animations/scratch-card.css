@@ -1,0 +1,41 @@
+/* Foil pulses gently to invite a touch, with stars twinkling on it */
+.scratch-foil { transition: opacity 0.8s ease; animation: scratchPulse 2.4s ease-in-out infinite; }
+@keyframes scratchPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+.scratch-twinkle { transform: translate(-50%, -50%) scale(0); animation: scratchTwinkle 2.6s ease-in-out infinite; }
+@keyframes scratchTwinkle {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(0); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(90deg); }
+}
+
+/* Once revealed the foil brightens, blurs and dissolves, and the date glows in */
+.scratch.revealed .scratch-foil { pointer-events: none; animation: scratchVanish 0.9s ease-in forwards; }
+.scratch.revealed .scratch-content { animation: scratchGlow 1.4s ease both; }
+@keyframes scratchVanish {
+  0% { opacity: 1; transform: scale(1); filter: blur(0) brightness(1); }
+  30% { opacity: 1; transform: scale(1.04); filter: blur(0) brightness(1.5); }
+  100% { opacity: 0; transform: scale(1.15); filter: blur(10px) brightness(2); }
+}
+@keyframes scratchGlow {
+  0% { opacity: 0; transform: scale(0.92); text-shadow: 0 0 0 transparent; }
+  40% { opacity: 1; transform: scale(1.04); text-shadow: 0 0 18px rgba(245,214,170,0.9); }
+  100% { opacity: 1; transform: scale(1); text-shadow: 0 0 6px rgba(245,214,170,0.35); }
+}
+
+/* Particles spawned by animations/scratch/particles.js */
+.scratch-flake { animation: flakeFall 0.9s cubic-bezier(.25,.6,.5,1) forwards; }
+@keyframes flakeFall {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0); }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.4); }
+}
+.scratch-sparkle { animation: sparkleBurst 1.1s ease-out forwards; }
+@keyframes sparkleBurst {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.2); }
+  20% { opacity: 1; transform: translate(calc(var(--dx) * 0.2), calc(var(--dy) * 0.2)) scale(1.4); }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scratch-flake, .scratch-sparkle { display: none; }
+  .scratch-twinkle { animation: none; opacity: 0.8; transform: translate(-50%, -50%); }
+  .scratch.revealed .scratch-foil { animation: none; opacity: 0; transition: opacity 0.4s; }
+}

@@ -1,0 +1,17 @@
+/* Invitation card, video invitation and photo gallery boxes, at the end of the Venue section */
+.invite-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 3.5rem auto 0; }
+.invite-card-box {
+  display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem; text-align: center;
+  background: var(--cream); border: 1px solid var(--gold); border-radius: 16px; box-shadow: 0 10px 28px rgba(142,59,85,0.1);
+}
+.invite-card-title { font-family: var(--script); font-weight: 400; font-size: 2.2rem; color: var(--maroon); }
+.invite-card-text { margin: 0.4rem 0 1.4rem; font-family: var(--serif); font-style: italic; font-size: 1.15rem; }
+.invite-card-icon { font-size: 2.2rem; color: var(--maroon); line-height: 1; margin-bottom: 0.4rem; }
+.invite-card-box .invite-card-text { flex: 1; }
+.invite-qr { padding: 0.8rem; margin-bottom: 1rem; background: #fff; border: 1px solid var(--gold); border-radius: 12px; }
+.invite-qr svg { display: block; }
+.invite-card-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+.invite-card-soon {
+  display: inline-block; padding: 0.8rem 2rem; border-radius: 30px; border: 1px dashed var(--gold);
+  font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: #9a7a55;
+}

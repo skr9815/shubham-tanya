@@ -1,0 +1,18 @@
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 1.5rem; background: rgba(107,42,63, 0.92); backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(201,160,99,0.4);
+}
+.nav-logo { font-family: var(--names); font-style: italic; font-weight: 600; font-size: 1.7rem; color: var(--gold-light); text-decoration: none; }
+.nav ul { display: flex; gap: 1.5rem; list-style: none; }
+.nav ul a { color: var(--gold-light); text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
+.nav ul a:hover { color: #fff; }
+.nav-toggle { display: none; background: none; border: 0; color: var(--gold-light); font-size: 1.6rem; cursor: pointer; }
+
+@media (max-width: 640px) {
+  .nav-toggle { display: block; }
+  .nav ul { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--maroon-dark); }
+  .nav ul.open { display: flex; }
+  .nav ul li a { display: block; padding: 0.9rem 1.5rem; }
+}

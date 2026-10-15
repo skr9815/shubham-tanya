@@ -1,29 +1,29 @@
-import Hero from './components/Hero.jsx'
-import Countdown from './components/Countdown.jsx'
-import Families from './components/Families.jsx'
-import Events from './components/Events.jsx'
-import Venue from './components/Venue.jsx'
-import SaveTheDate from './components/SaveTheDate.jsx'
-import Rsvp from './components/Rsvp.jsx'
-import Footer from './components/Footer.jsx'
-import Nav from './components/Nav.jsx'
-import Music from './components/Music.jsx'
+import NavContainer from './containers/NavContainer.jsx'
+import HeroContainer from './containers/HeroContainer.jsx'
+import CountdownContainer from './containers/CountdownContainer.jsx'
+import FamiliesContainer from './containers/FamiliesContainer.jsx'
+import EventsContainer from './containers/EventsContainer.jsx'
+import SaveTheDateContainer from './containers/SaveTheDateContainer.jsx'
+import RsvpContainer from './containers/RsvpContainer.jsx'
+import VenueContainer from './containers/VenueContainer.jsx'
+import FooterContainer from './containers/FooterContainer.jsx'
+import MusicContainer from './containers/MusicContainer.jsx'
 import { useFrameSync } from './lib/frame.js'
 
 export default function App() {
   useFrameSync()
   return (
     <>
-      <Nav />
-      <Hero />
-      <Countdown />
-      <Families />
-      <Events />
-      <SaveTheDate />
-      <Rsvp />
-      <Venue />
-      <Footer />
-      <Music />
+      <NavContainer />
+      <HeroContainer />
+      <CountdownContainer />
+      <FamiliesContainer />
+      <EventsContainer />
+      <SaveTheDateContainer />
+      <RsvpContainer />
+      <VenueContainer />
+      <FooterContainer />
+      <MusicContainer />
     </>
   )
 }

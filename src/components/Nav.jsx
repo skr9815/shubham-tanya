@@ -1,23 +1,11 @@
-import { useState } from 'react'
-import { wedding } from '../config.js'
-
-const links = [
-  ['family', 'Family'],
-  ['events', 'Events'],
-  ['calendar', 'Save the Date'],
-  ['rsvp', 'RSVP'],
-  ['venue', 'Venue'],
-]
-
-export default function Nav() {
-  const [open, setOpen] = useState(false)
+export default function Nav({ initials, links, open, onToggle, onNavigate }) {
   return (
     <nav className="nav">
-      <a href="#home" className="nav-logo">{wedding.groom[0]} & {wedding.bride[0]}</a>
-      <button className="nav-toggle" aria-label="Menu" onClick={() => setOpen(!open)}>☰</button>
+      <a href="#home" className="nav-logo">{initials[0]} & {initials[1]}</a>
+      <button className="nav-toggle" aria-label="Menu" onClick={onToggle}>☰</button>
       <ul className={open ? 'open' : ''}>
         {links.map(([id, label]) => (
-          <li key={id}><a href={`#${id}`} onClick={() => setOpen(false)}>{label}</a></li>
+          <li key={id}><a href={`#${id}`} onClick={onNavigate}>{label}</a></li>
         ))}
       </ul>
     </nav>

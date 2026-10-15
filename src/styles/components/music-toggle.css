@@ -1,0 +1,9 @@
+/* Background music toggle */
+.music-toggle {
+  position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 30;
+  width: 52px; height: 52px; border-radius: 50%; cursor: pointer;
+  display: grid; place-items: center; font-size: 1.4rem;
+  color: var(--gold-light); background: var(--maroon-dark);
+  border: 2px solid var(--gold); box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+.music-toggle:hover { transform: scale(1.08); }

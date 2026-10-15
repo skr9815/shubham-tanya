@@ -1,0 +1,3 @@
+/* Video pop-up fades in over the page */
+.video-overlay { animation: videoFadeIn 0.3s ease both; }
+@keyframes videoFadeIn { from { opacity: 0; } }

@@ -1,29 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
-import { wedding } from '../config.js'
+import { monthLayout } from '../lib/dates.js'
 
-const HOLD_MS = 6000 // how long each month stays up before the page flips
 const WEEKDAYS = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
 
-// Event date in IST as numbers
-const ymd = (iso) => {
-  const [y, m, d] = new Date(iso).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' }).split('-').map(Number)
-  return { y, m, d }
-}
-
-// One calendar page per month that has events, in date order
-const MONTHS = wedding.events.reduce((months, e) => {
-  const { y, m, d } = ymd(e.start)
-  let month = months.find((p) => p.y === y && p.m === m)
-  if (!month) months.push((month = { y, m, events: [] }))
-  month.events.push({ ...e, day: d })
-  return months
-}, [])
-
 function CalendarPage({ month, className, onGone }) {
-  const { y, m, events } = month
-  const firstWeekday = new Date(Date.UTC(y, m - 1, 1)).getUTCDay()
-  const daysInMonth = new Date(Date.UTC(y, m, 0)).getUTCDate()
-  const title = new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString('en-IN', { month: 'long', timeZone: 'UTC' })
+  const { y, events } = month
+  const { firstWeekday, daysInMonth, title } = monthLayout(month)
   const marked = [...events].sort((a, b) => a.day - b.day)
 
   return (
@@ -62,41 +43,16 @@ function CalendarPage({ month, className, onGone }) {
   )
 }
 
-// Wall calendar that marks each event date with its picture, flipping from month to month
-export default function SaveCalendar() {
-  const ref = useRef(null)
-  const [active, setActive] = useState(false)
-  const [turn, setTurn] = useState(0) // how many page flips so far; also keys the pages so their animations replay
-  const [leaving, setLeaving] = useState(null)
-
-  useEffect(() => {
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setActive(true); io.disconnect() }
-    }, { threshold: 0.35 })
-    io.observe(ref.current)
-    return () => io.disconnect()
-  }, [])
-
-  useEffect(() => {
-    if (!active || MONTHS.length < 2) return
-    const t = setTimeout(() => {
-      setLeaving(turn)
-      setTurn(turn + 1)
-    }, HOLD_MS)
-    return () => clearTimeout(t)
-  }, [active, turn])
-
-  const monthAt = (n) => MONTHS[n % MONTHS.length]
-
+// Wall calendar that marks each event date with its picture, flipping from month to month.
+// `current` / `leaving` are { key, month } for the page on show and the one flipping away.
+export default function SaveCalendar({ calendarRef, active, current, leaving, onLeaveDone }) {
   return (
-    <div ref={ref} className={`save-cal${active ? ' in' : ''}`} aria-label="Wedding calendar">
+    <div ref={calendarRef} className={`save-cal${active ? ' in' : ''}`} aria-label="Wedding calendar">
       <span className="cal-ring left" aria-hidden="true" />
       <span className="cal-ring right" aria-hidden="true" />
       <div className="cal-stage">
-        {leaving !== null && (
-          <CalendarPage key={`p${leaving}`} month={monthAt(leaving)} className="leave" onGone={() => setLeaving(null)} />
-        )}
-        <CalendarPage key={`p${turn}`} month={monthAt(turn)} className={turn === 0 ? 'first' : 'enter'} />
+        {leaving && <CalendarPage key={leaving.key} month={leaving.month} className="leave" onGone={onLeaveDone} />}
+        <CalendarPage key={current.key} month={current.month} className={current.first ? 'first' : 'enter'} />
       </div>
     </div>
   )

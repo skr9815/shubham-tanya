@@ -1,0 +1,13 @@
+/* Phone icon: the handset rings gently and the medallion pulses */
+.contact-icon::after { animation: contactPulse 2.4s ease-out infinite; }
+.contact-icon svg { animation: contactRing 2.4s ease-in-out infinite; }
+@keyframes contactRing {
+  0%, 55%, 100% { rotate: 0deg; }
+  60%, 70%, 80% { rotate: -14deg; }
+  65%, 75%, 85% { rotate: 14deg; }
+}
+@keyframes contactPulse {
+  0%, 50% { box-shadow: 0 0 0 0 rgba(201,160,99,0.55); }
+  100% { box-shadow: 0 0 0 9px rgba(201,160,99,0); }
+}
+@media (prefers-reduced-motion: reduce) { .contact-icon svg, .contact-icon::after { animation: none; } }

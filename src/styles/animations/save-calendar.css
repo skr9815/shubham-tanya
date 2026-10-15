@@ -1,0 +1,28 @@
+/* Pages: the first one swings in when the calendar comes into view (.in); later pages flip in
+   (.enter) as the old one flips away (.leave). Timing is driven by usePageFlip. */
+.save-cal:not(.in) .cal-page.first { opacity: 0; transform: rotateX(-25deg); }
+.save-cal.in .cal-page.first { animation: pageIn 1.4s cubic-bezier(.2,.8,.2,1) both; }
+.cal-page.enter { animation: pageIn 1.4s cubic-bezier(.2,.8,.2,1) 0.5s both; }
+.cal-page.leave { z-index: 2; animation: pageOut 1.6s cubic-bezier(.45,0,.7,.5) both; }
+@keyframes pageIn { from { opacity: 0; transform: rotateX(-25deg) translateY(-8px); } to { opacity: 1; transform: none; } }
+@keyframes pageOut { to { opacity: 0; transform: rotateX(110deg); } }
+
+/* Event days flip over like a coin to show their picture, one after another, then get a date badge */
+.cal-cell.marked { --t: calc(1.8s + var(--i) * 1.3s); } /* --t: when this date flips */
+.cal-cell.marked b { scale: 0; }
+.in .cal-page:not(.leave) .cal-flip { animation: dateFlip 0.7s cubic-bezier(.45,.05,.3,1.2) calc(var(--t) + 0.3s) both; }
+.in .cal-page:not(.leave) .cal-cell.marked b { animation: badgePop 0.4s cubic-bezier(.3,1.6,.5,1) calc(var(--t) + 0.9s) both; }
+.cal-page.leave .cal-flip { transform: rotateY(180deg); }
+.cal-page.leave .cal-cell.marked b { scale: 1; }
+@keyframes dateFlip {
+  0% { transform: rotateY(0deg) scale(1); }
+  50% { transform: rotateY(90deg) scale(1.25); }
+  100% { transform: rotateY(180deg) scale(1); }
+}
+@keyframes badgePop { from { scale: 0; } to { scale: 1; } }
+
+/* Legend lines fade in as their dates flip */
+.cal-legend li { opacity: 0; translate: 0 8px; }
+.in .cal-page:not(.leave) .cal-legend li { animation: legendIn 0.6s ease calc(2.7s + var(--i) * 1.3s) both; }
+.cal-page.leave .cal-legend li { opacity: 1; translate: none; }
+@keyframes legendIn { to { opacity: 1; translate: none; } }

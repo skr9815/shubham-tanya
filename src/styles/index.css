@@ -1,0 +1,36 @@
+/* Look and layout of each component */
+@import './base.css';
+@import './components/nav.css';
+@import './components/hero.css';
+@import './components/scratch-card.css';
+@import './components/invitation-cards.css';
+@import './components/video-overlay.css';
+@import './components/countdown.css';
+@import './components/families.css';
+@import './components/events.css';
+@import './components/venue.css';
+@import './components/rsvp.css';
+@import './components/footer.css';
+@import './components/scroll-arrow.css';
+@import './components/music-toggle.css';
+@import './components/welcome.css';
+@import './components/petal-shower.css';
+@import './components/save-the-date.css';
+@import './components/save-calendar.css';
+@import './components/add-to-calendar.css';
+
+/* Keyframes, transitions and entrance states; loaded after the components so they layer on top */
+@import './animations/shared.css';
+@import './animations/hero.css';
+@import './animations/scratch-card.css';
+@import './animations/video-overlay.css';
+@import './animations/countdown.css';
+@import './animations/families.css';
+@import './animations/events.css';
+@import './animations/rsvp.css';
+@import './animations/scroll-arrow.css';
+@import './animations/music-toggle.css';
+@import './animations/welcome.css';
+@import './animations/petal-shower.css';
+@import './animations/save-calendar.css';
+@import './animations/reduced-motion.css';

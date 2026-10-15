@@ -1,41 +1,11 @@
-import { useCallback, useEffect, useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
-import { wedding } from '../config.js'
 
 function Soon({ children }) {
   return <p className="invite-card-soon">{children}</p>
 }
 
-// Pop-up portrait video player; the background music pauses while it plays and resumes on close
-function VideoOverlay({ src, onClose }) {
-  useEffect(() => {
-    const music = [...document.querySelectorAll('audio')].filter((a) => !a.paused)
-    music.forEach((a) => a.pause())
-    const overflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    const onKey = (e) => e.key === 'Escape' && onClose()
-    document.addEventListener('keydown', onKey)
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = overflow
-      music.forEach((a) => a.play().catch(() => {}))
-    }
-  }, [onClose])
-
-  return (
-    <div className="video-overlay" role="dialog" aria-modal="true" aria-label="Digital invitation video" onClick={onClose}>
-      <button className="video-close" onClick={onClose} aria-label="Close video">×</button>
-      <video className="video-player" src={src} controls autoPlay playsInline onClick={(e) => e.stopPropagation()} />
-    </div>
-  )
-}
-
-// Video invitation: a video file plays in the pop-up player, anything else (YouTube) opens in a new tab
-function DigitalInvitation() {
-  const url = wedding.digitalInvitation
-  const isFile = /\.(mp4|webm|mov|m4v)$/i.test(url)
-  const [open, setOpen] = useState(false)
-  const close = useCallback(() => setOpen(false), [])
+// Video invitation: a video file plays in the pop-up player (`overlay`), anything else (YouTube) opens in a new tab
+function DigitalInvitation({ url, isFile, onWatch, overlay }) {
   return (
     <div className="invite-card-box">
       <span className="invite-card-icon" aria-hidden="true">
@@ -48,20 +18,19 @@ function DigitalInvitation() {
       <h3 className="invite-card-title">Digital Invitation</h3>
       <p className="invite-card-text">View our digital invitation — a special glimpse of our wedding celebrations.</p>
       {url && isFile ? (
-        <button className="btn" onClick={() => setOpen(true)}>Watch Invitation</button>
+        <button className="btn" onClick={onWatch}>Watch Invitation</button>
       ) : url ? (
         <a className="btn" href={url} target="_blank" rel="noreferrer">Watch on YouTube</a>
       ) : (
         <Soon>Digital invitation coming soon</Soon>
       )}
-      {open && <VideoOverlay src={url} onClose={close} />}
+      {overlay}
     </div>
   )
 }
 
 // Photographer's face-recognition gallery: a button for guests on their phones, and a QR code to scan from a big screen
-function PhotoGallery() {
-  const url = wedding.photoGallery
+function PhotoGallery({ url }) {
   return (
     <div className="invite-card-box">
       <span className="invite-card-icon" aria-hidden="true">
@@ -89,21 +58,8 @@ function PhotoGallery() {
   )
 }
 
-// View / download buttons for the printable invitation card, shown once the file has been uploaded to public/
-function PrintedInvitation() {
-  const url = wedding.invitationCard
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    if (!url) return
-    // Missing files come back as the site's own HTML page, so check the type as well as the status
-    fetch(url, { method: 'HEAD' })
-      .then((res) => setReady(res.ok && !(res.headers.get('content-type') || '').includes('text/html')))
-      .catch(() => setReady(false))
-  }, [url])
-
-  const fileName = `Shubham-Tanya-Invitation${url ? url.slice(url.lastIndexOf('.')) : ''}`
-
+// View / download buttons for the printable invitation card, shown once the file is available
+function PrintedInvitation({ url, ready, fileName }) {
   return (
     <div className="invite-card-box">
       <span className="invite-card-icon" aria-hidden="true">
@@ -126,12 +82,12 @@ function PrintedInvitation() {
   )
 }
 
-export default function InvitationCard() {
+export default function InvitationCards({ printed, digital, galleryUrl }) {
   return (
     <div className="invite-cards">
-      <PrintedInvitation />
-      <DigitalInvitation />
-      <PhotoGallery />
+      <PrintedInvitation {...printed} />
+      <DigitalInvitation {...digital} />
+      <PhotoGallery url={galleryUrl} />
     </div>
   )
 }

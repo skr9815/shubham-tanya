@@ -1,0 +1,10 @@
+/* Guests who ask for less motion get every element in its final, settled state */
+@media (prefers-reduced-motion: reduce) {
+  .cal-flip { transform: rotateY(180deg); }
+  .cal-cell.marked b { scale: 1; }
+  *, *::before, *::after { animation: none !important; }
+  .family-card, .family-union, .family-members li, .family-address, .event-frame, .event-sep-line, .event-sep-medallion { opacity: 1; transform: none; transition: none; }
+  .family-crest { scale: 1; transition: none; }
+  .family-sparkles { display: none; }
+  .petals, .petal-shower, .hero-lights { display: none; }
+}

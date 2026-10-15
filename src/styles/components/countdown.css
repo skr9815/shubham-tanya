@@ -1,0 +1,25 @@
+/* Countdown — faint Ganesh ji watermark */
+.countdown { background: var(--cream-alt); overflow: hidden; }
+.countdown::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('/images/ganpati-ji.jpg') center / contain no-repeat;
+  opacity: 0.1; filter: sepia(0.6);
+}
+.countdown > * { position: relative; }
+.timer { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.timer-box {
+  position: relative; overflow: hidden; width: 110px; padding: 1.2rem 0;
+  background: rgba(255,255,255,0.85); border: 1px solid var(--gold); border-radius: 60px 60px 8px 8px; box-shadow: 0 6px 20px rgba(142,59,85,0.1);
+}
+.timer-num { display: block; font-family: var(--serif); font-size: 2.6rem; font-weight: 600; color: var(--maroon); }
+/* light sweep across each box */
+.timer-box::after {
+  content: ''; position: absolute; top: 0; left: -70%; width: 45%; height: 100%; pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(255,243,220,0.9), transparent); transform: skewX(-20deg);
+}
+.timer-label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
+
+@media (max-width: 640px) {
+  .timer-box { width: 72px; }
+  .timer-num { font-size: 1.8rem; }
+}

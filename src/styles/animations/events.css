@@ -1,0 +1,29 @@
+/* Divider: on .in the lines draw out from the centre and the medallion pops in; both shimmer */
+.event-sep-line { transform: scaleX(0); transition: transform 1.4s cubic-bezier(.2,.8,.2,1); animation: sepShimmer 3.5s linear infinite; }
+.event-sep-line.right { animation-direction: reverse; }
+.event-sep.in .event-sep-line { transform: scaleX(1); }
+.event-sep-medallion { transform: scale(0); transition: transform 0.8s cubic-bezier(.3,1.5,.5,1); animation: sepGlow 2.6s ease-in-out infinite alternate; }
+.event-sep.in .event-sep-medallion { transform: scale(1); }
+.event-sep-medallion svg { animation: spin 18s linear infinite; }
+@keyframes sepShimmer { to { background-position: -200% 0; } }
+@keyframes sepGlow {
+  from { box-shadow: 0 0 0 4px rgba(201,160,99,0.2), 0 6px 18px rgba(142,59,85,0.2); }
+  to { box-shadow: 0 0 0 7px rgba(201,160,99,0.12), 0 0 26px rgba(232,163,168,0.7); }
+}
+
+/* Event card rises in once the screen is in view */
+.event-frame { opacity: 0; transform: translateY(40px) scale(0.96); transition: opacity 1s ease, transform 1.1s cubic-bezier(.2,.8,.2,1); }
+.in .event-frame { opacity: 1; transform: none; }
+
+/* Rose petals drifting down each screen */
+.petals span { animation: petalFall linear infinite; }
+@keyframes petalFall {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, 28vh) rotate(120deg); }
+  50% { transform: translate(-20px, 56vh) rotate(240deg); }
+  75% { transform: translate(25px, 84vh) rotate(360deg); }
+  100% { transform: translate(-10px, 115vh) rotate(480deg); }
+}
+
+.diya .flame { animation: flicker 1.4s ease-in-out infinite alternate; }
+.diya:nth-child(even) .flame { animation-delay: 0.5s; }
