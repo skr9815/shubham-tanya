@@ -33,19 +33,19 @@ export const wedding = {
     groom: {
       title: 'Groom’s Family',
       hindi: 'वर पक्ष',
-      relation: ['S/o', ['Shri Manikant', 'Smt. Nutan Kumari']],
+      relation: ['S/o', ['Shri Manikant Singh', 'Smt. Nutan Kumari']],
       // Full names for the invitation line in the hero
       parents: 'Shri Manikant & Smt. Nutan Kumari',
-      grandRelation: ['Grand S/o', ['Late Shri RamNandan Singh', 'Late Smt.Vina Rani']],
+      grandRelation: ['Grand S/o', ['Late RamNandan Singh', 'Late Vina Rani']],
       address: 'Vina Niwas Harrakh, Begusarai, Bihar',
     },
     bride: {
       title: 'Bride’s Family',
       hindi: 'वधू पक्ष',
-      relation: ['D/o', ['Shri Brajesh', 'Smt. Vandana Kumari']],
+      relation: ['D/o', ['Shri Brajesh Singh', 'Smt. Vandana Kumari']],
       // Full names for the invitation line in the hero
       parents: 'Shri Brajesh & Smt. Vandana Kumari',
-      grandRelation: ['Grand D/o', ['Late Shri LalChand', 'Late Smt. Kamla Devi']],
+      grandRelation: ['Grand D/o', ['Late LalChand Singh', 'Late Smt. Kamla Devi']],
       address: 'Lashkar Gwalior, Madhya Pradesh',
     },
   },
@@ -73,7 +73,7 @@ export const wedding = {
   invitationCard: '/invitation-card.pdf',
   // Digital (video) invitation: a video file in public/ (plays in a pop-up player) or a YouTube link.
   // Leave empty to show "coming soon".
-  digitalInvitation: '/video/wedding-invitation.mp4',
+  digitalInvitation: '/video/digital-invitation.mp4',
   // Photographer's AI face-recognition gallery: guests take a selfie and see only the photos they appear in.
   // Paste the gallery link here; a QR code for it is generated automatically. Leave empty to show "coming soon".
   photoGallery: '',
