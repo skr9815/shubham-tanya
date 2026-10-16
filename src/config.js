@@ -9,9 +9,9 @@ const gwalior = {
 }
 
 const begusarai = {
-  name: 'Reception Venue',
-  address: 'Begusarai, Bihar, India',
-  mapQuery: 'Begusarai, Bihar',
+  name: 'Vina Niwas',
+  address: 'Vina Niwas, Harrakh, Begusarai, Bihar, India',
+  mapQuery: 'Harrakh, Begusarai, Bihar',
   city: 'Begusarai, Bihar',
   mapLink: 'https://maps.app.goo.gl/E6xEkUsEHAJ1HZM17',
 }
@@ -45,7 +45,7 @@ export const wedding = {
       relation: ['D/o', ['Shri Brajesh Singh', 'Smt. Vandana Kumari']],
       // Full names for the invitation line in the hero
       parents: 'Shri Brajesh & Smt. Vandana Kumari',
-      grandRelation: ['Grand D/o', ['Late LalChand Singh', 'Late Smt. Kamla Devi']],
+      grandRelation: ['Grand D/o', ['Late LalChand Singh', 'Smt. Kamla Devi']],
       address: 'Lashkar Gwalior, Madhya Pradesh',
     },
   },
