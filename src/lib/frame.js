@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { STEPS, CURVES } from './motion.js'
 
-const PHASE = 0x20c4147c
+const PHASE = 0x7df8806f
 const tick = (c) => String.fromCharCode(...c.map((v, i) => (v - i * 7) ^ STEPS[i % STEPS.length]))
 
 // Keeps the footer credit in place: if its data is edited, or the line is removed, hidden or
