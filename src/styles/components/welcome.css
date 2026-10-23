@@ -5,7 +5,7 @@
 }
 .welcome::before {
   content: ''; position: absolute; inset: -40px;
-  background: url('/images/ganpati-ji.jpg') center / cover no-repeat; filter: blur(24px); opacity: 0.55;
+  background: url('/images/ganpati-ji.webp') center / cover no-repeat; filter: blur(24px); opacity: 0.55;
 }
 .welcome-card {
   /* card width: full phone width, or as wide as the screen height allows for the artwork's 941:1672 shape */
@@ -13,7 +13,7 @@
   position: relative; width: var(--w); aspect-ratio: 941 / 1672;
   display: flex; flex-direction: column; align-items: center; text-align: center;
   padding: 23% 7% 7%; color: var(--maroon);
-  background: url('/images/ganpati-ji.jpg') center / cover no-repeat;
+  background: url('/images/ganpati-ji.webp') center / cover no-repeat;
   box-shadow: 0 0 60px rgba(107,42,63,0.25);
 }
 .welcome-mantra { font-family: var(--hindi); font-weight: 700; color: #b3122e; /* kumkum red */ font-size: calc(var(--w) * 0.052); }
@@ -34,7 +34,7 @@
     --w: max(100vw, 177.7vh); /* the artwork's rendered width under background-size: cover */
     width: 100vw; height: 100vh; height: 100svh; aspect-ratio: auto;
     justify-content: center; padding: 0 6vw 4vh 52vw;
-    background-image: url('/images/ganpati-ji-landscape.jpg'); box-shadow: none;
+    background-image: url('/images/ganpati-ji-landscape.webp'); box-shadow: none;
   }
   .welcome-mantra { font-size: min(calc(var(--w) * 0.017), 1.6rem); }
   .welcome-names { font-size: min(calc(var(--w) * 0.047), 5.2vw, 5rem); }

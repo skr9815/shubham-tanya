@@ -1,4 +1,4 @@
-/* Petal shower when the invitation opens */
+/* Petal shower when the date is revealed */
 .petal-shower { position: fixed; inset: 0; z-index: 110; pointer-events: none; overflow: hidden; }
 .petal-shower span {
   position: absolute; top: -40px; border-radius: 80% 0 80% 0;

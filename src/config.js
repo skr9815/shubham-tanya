@@ -54,9 +54,9 @@ export const wedding = {
   // bgPortraitX: horizontal focus of the portrait art; cardSide: 'left' puts the card left of the couple on wide screens
   // start/end: used by "Add to Calendar" (IST)
   events: [
-    { name: 'Engagement & Sangeet', hindi: 'सगाई एवं संगीत', icon: '/images/events/icon-sangeet.jpg', bgLandscape: '/images/engagement-bg-landscape.jpg', bgPortrait: '/images/engagement-bg-portrait.jpg', bgPortraitX: '75%', cardSide: 'left', date: 'Sunday, 29 Nov 2026', time: 'Evening onwards', venue: gwalior, dress: 'Indo-Western Glam', start: '2026-11-29T18:00:00+05:30', end: '2026-11-29T23:00:00+05:30' },
-    { name: 'Wedding Ceremony', hindi: 'शुभ विवाह', icon: '/images/events/icon-wedding.jpg', bgLandscape: '/images/wedding-bg-landscape.jpg', bgPortrait: '/images/wedding-bg-portrait.jpg', bgPortraitX: '75%', cardSide: 'left', date: 'Monday, 30 Nov 2026', time: '8:00 PM onwards', venue: gwalior, dress: 'Traditional Ethnic', start: '2026-11-30T20:00:00+05:30', end: '2026-11-30T23:59:00+05:30' },
-    { name: 'Reception', hindi: 'वर-वधू स्वागत समारोह', icon: '/images/events/icon-reception.jpg', bgLandscape: '/images/reception-bg-landscape.jpg', bgPortrait: '/images/reception-bg-portrait.jpg', bgPortraitX: '55%', cardSide: 'left', date: 'Saturday, 5 Dec 2026', time: 'Evening onwards', venue: begusarai, dress: 'Festive Formal', start: '2026-12-05T19:00:00+05:30', end: '2026-12-05T23:00:00+05:30' },
+    { name: 'Engagement & Sangeet', hindi: 'सगाई एवं संगीत', icon: '/images/events/icon-sangeet.webp', bgLandscape: '/images/engagement-bg-landscape.webp', bgPortrait: '/images/engagement-bg-portrait.webp', bgPortraitX: '75%', cardSide: 'left', date: 'Sunday, 29 Nov 2026', time: 'Evening onwards', venue: gwalior, dress: 'Indo-Western Glam', start: '2026-11-29T18:00:00+05:30', end: '2026-11-29T23:00:00+05:30' },
+    { name: 'Wedding Ceremony', hindi: 'शुभ विवाह', icon: '/images/events/icon-wedding.webp', bgLandscape: '/images/wedding-bg-landscape.webp', bgPortrait: '/images/wedding-bg-portrait.webp', bgPortraitX: '75%', cardSide: 'left', date: 'Monday, 30 Nov 2026', time: '8:00 PM onwards', venue: gwalior, dress: 'Traditional Ethnic', start: '2026-11-30T20:00:00+05:30', end: '2026-11-30T23:59:00+05:30' },
+    { name: 'Reception', hindi: 'वर-वधू स्वागत समारोह', icon: '/images/events/icon-reception.webp', bgLandscape: '/images/reception-bg-landscape.webp', bgPortrait: '/images/reception-bg-portrait.webp', bgPortraitX: '55%', cardSide: 'left', date: 'Saturday, 5 Dec 2026', time: 'Evening onwards', venue: begusarai, dress: 'Festive Formal', start: '2026-12-05T19:00:00+05:30', end: '2026-12-05T23:00:00+05:30' },
   ],
   venues: [
     { ...gwalior, label: 'Engagement · Sangeet · Wedding' },
@@ -65,8 +65,8 @@ export const wedding = {
   contacts: [
     { name: 'Shubham', phone: '+44 07721595330' },
   ],
-  // Where RSVP replies are sent (opens the guest's email app).
-  rsvpEmail: 'skr9815@gmail.com',
+  // Where RSVP replies are sent (opens WhatsApp with the reply filled in).
+  rsvpWhatsApp: '+91 9304158686',
   // Printable invitation card guests can view and download from the Venue section.
   // Put the file in the public/ folder with this exact name (a .pdf, .jpg or .png — update the extension here to match).
   // Until the file exists, the buttons show "Invitation card coming soon".

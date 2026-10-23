@@ -13,7 +13,7 @@
 .event-screen::before {
   /* soft blur on the artwork; inset past the edges so the blur doesn't fade them */
   content: ''; position: absolute; inset: -12px; opacity: 0.78; filter: blur(2.5px);
-  background: var(--bg-landscape, url('/images/events-bg-landscape.jpg')) center / cover no-repeat;
+  background: var(--bg-landscape, url('/images/events-bg-landscape.webp')) center / cover no-repeat;
 }
 /* Artwork with the couple on the right: card over the empty space on the left, about 30% across */
 @media (min-aspect-ratio: 1/1) {
@@ -80,7 +80,7 @@
   .event-screen {
     justify-content: flex-end; align-items: center; padding: 50svh 1rem 3rem;
   }
-  .event-screen::before { background-image: var(--bg-portrait, url('/images/events-bg-portrait.jpg')); background-position: var(--bg-portrait-x, center) top; }
+  .event-screen::before { background-image: var(--bg-portrait, url('/images/events-bg-portrait.webp')); background-position: var(--bg-portrait-x, center) top; }
   .event-stage { width: min(100%, 360px); }
   .event-frame { padding: 1.4rem 1.2rem 1.2rem; border-radius: 180px 180px 10px 10px; outline-offset: 5px; }
   .event-frame::before { inset: 6px; border-radius: 174px 174px 6px 6px; }

@@ -13,6 +13,11 @@
   clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
   filter: drop-shadow(0 0 3px #fff);
 }
+/* Rose petals that burst out of the card when the date is revealed */
+.scratch-petal {
+  position: absolute; pointer-events: none; z-index: 3; opacity: 0;
+  border-radius: 80% 0 80% 0; box-shadow: 0 2px 4px rgba(107,42,63,0.2);
+}
 /* Gold flakes that peel off while scratching, and the sparkle burst when the foil dissolves */
 .scratch-flake, .scratch-sparkle {
   position: absolute; width: var(--size); height: var(--size); pointer-events: none; z-index: 2;

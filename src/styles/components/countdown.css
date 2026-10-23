@@ -2,7 +2,7 @@
 .countdown { background: var(--cream-alt); overflow: hidden; }
 .countdown::before {
   content: ''; position: absolute; inset: 0;
-  background: url('/images/ganpati-ji.jpg') center / contain no-repeat;
+  background: url('/images/ganpati-ji.webp') center / contain no-repeat;
   opacity: 0.1; filter: sepia(0.6);
 }
 .countdown > * { position: relative; }

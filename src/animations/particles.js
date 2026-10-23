@@ -10,7 +10,7 @@ export const EVENT_PETALS = [
 // Gold sparkles sitting on a family card's border, twinkling one after another: [top %, left %]
 export const FAMILY_SPARKLES = [[0, 36], [8, 11], [34, 0], [62, 0], [90, 0], [100, 30], [100, 70], [90, 100], [62, 100], [34, 100], [8, 89], [0, 64]]
 
-const SHOWER_COLORS = [
+export const SHOWER_COLORS = [
   ['#f9c5d1', '#e07a95'], ['#fbe3e8', '#f0a3b5'], ['#c9536d', '#8e3b55'], ['#fff4ea', '#f3c7b5'], ['#f5e6cc', '#c9a063'],
 ]
 

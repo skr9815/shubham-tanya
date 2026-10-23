@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { makeTwinkles } from '../particles.js'
 import { clearedRatio, paintFoil, scratchLine } from './foil.js'
-import { flake, sparkleBurst } from './particles.js'
+import { flake, petalBurst, sparkleBurst } from './particles.js'
 
 // Gold foil scratch card: guests rub it away to reveal what's underneath.
-// Once `threshold` of the foil is cleared, the rest dissolves on its own.
-export default function useScratchCard({ label, threshold }) {
+// Once `threshold` of the foil is cleared, the rest dissolves on its own and `onReveal` is called.
+export default function useScratchCard({ label, threshold, onReveal }) {
   const wrapRef = useRef(null)
   const canvasRef = useRef(null)
   const drawing = useRef(false)
@@ -35,7 +35,9 @@ export default function useScratchCard({ label, threshold }) {
   const reveal = () => {
     if (revealed) return
     sparkleBurst(wrapRef.current)
+    petalBurst(wrapRef.current)
     setRevealed(true)
+    onReveal?.()
   }
 
   const scratch = (p) => {

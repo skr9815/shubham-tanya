@@ -38,7 +38,7 @@ export default function Families({ sectionRef, visible, bride, groom, sparkles }
         <FamilyCard side="groom" name={groom.name} family={groom.family} sparkles={sparkles} />
         <div className="family-union" aria-hidden="true">
           {/* Gathbandhan: the two families' dupattas tied together */}
-          <img className="family-knot" src="/images/gathbandhan.jpg" alt="" />
+          <img className="family-knot" src="/images/gathbandhan.webp" alt="" />
         </div>
         <FamilyCard side="bride" name={bride.name} family={bride.family} sparkles={sparkles} />
       </div>

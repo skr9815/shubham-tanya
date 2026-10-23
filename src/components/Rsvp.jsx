@@ -24,7 +24,7 @@ export default function Rsvp({ form, sent, onChange, onSubmit, contacts }) {
             {[1, 2, 3, 4, 5].map((n) => <option key={n} value={n}>{n} {n === 1 ? 'guest' : 'guests'}</option>)}
           </select>
           <textarea name="message" placeholder="Your wishes for the couple (optional)" rows="4" value={form.message} onChange={onChange} />
-          <button className="btn" type="submit">Send RSVP</button>
+          <button className="btn" type="submit">Send RSVP on WhatsApp</button>
         </form>
       )}
       <div className="contacts">

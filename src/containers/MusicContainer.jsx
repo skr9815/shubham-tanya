@@ -1,22 +1,14 @@
-import { useMemo } from 'react'
 import { wedding } from '../config.js'
 import useBackgroundMusic from '../hooks/useBackgroundMusic.js'
 import useBodyScrollLock from '../hooks/useBodyScrollLock.js'
 import useWelcomeTransition from '../animations/useWelcomeTransition.js'
 import useScrolledPast from '../animations/useScrolledPast.js'
-import { makePetalShower } from '../animations/particles.js'
 import Welcome from '../components/Welcome.jsx'
-import PetalShower from '../components/PetalShower.jsx'
 import ScrollArrow from '../components/ScrollArrow.jsx'
 import MusicToggle from '../components/MusicToggle.jsx'
 
 // The song plays this many times in a row, then stops (the music button can start it again)
 const MAX_PLAYS = 3
-
-function PetalShowerContainer() {
-  const petals = useMemo(() => makePetalShower(70), [])
-  return <PetalShower petals={petals} />
-}
 
 function ScrollArrowContainer() {
   // Fades away on the first scroll
@@ -37,7 +29,6 @@ export default function MusicContainer() {
     <>
       <audio src="/music/jodha_flute.mp3" preload="auto" {...music.audioProps} />
       {!welcome.opened && <Welcome bride={wedding.bride} groom={wedding.groom} closing={welcome.closing} onOpen={open} />}
-      {welcome.shower && <PetalShowerContainer />}
       {welcome.opened && <ScrollArrowContainer />}
       {welcome.opened && <MusicToggle playing={music.playing} onToggle={music.toggle} />}
     </>

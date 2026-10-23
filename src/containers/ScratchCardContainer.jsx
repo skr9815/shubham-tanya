@@ -1,7 +1,7 @@
 import useScratchCard from '../animations/scratch/useScratchCard.js'
 import ScratchCard from '../components/ScratchCard.jsx'
 
-export default function ScratchCardContainer({ children, label = 'Scratch to reveal the date', threshold = 0.45 }) {
-  const card = useScratchCard({ label, threshold })
+export default function ScratchCardContainer({ children, label = 'Scratch to reveal the date', threshold = 0.25, onReveal }) {
+  const card = useScratchCard({ label, threshold, onReveal })
   return <ScratchCard label={label} {...card}>{children}</ScratchCard>
 }
