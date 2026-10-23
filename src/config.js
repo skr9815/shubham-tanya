@@ -54,12 +54,13 @@ export const wedding = {
   // bgPortraitX: horizontal focus of the portrait art; cardSide: 'left' puts the card left of the couple on wide screens
   // start/end: used by "Add to Calendar" (IST)
   events: [
+    { name: 'Haldi Ceremony', hindi: 'हल्दी रस्म', icon: '/images/events/icon-haldi.jpg', bgLandscape: '/images/haldi-bg-landscape.jpg', bgPortrait: '/images/haldi-bg-landscape.jpg', bgPortraitX: '75%', cardSide: 'left', date: 'Sunday, 29 Nov 2026', time: 'Morning onwards', venue: gwalior, dress: 'Yellow & Light Pink Traditional', start: '2026-11-29T10:00:00+05:30', end: '2026-11-29T13:00:00+05:30' },
     { name: 'Engagement & Sangeet', hindi: 'सगाई एवं संगीत', icon: '/images/events/icon-sangeet.webp', bgLandscape: '/images/engagement-bg-landscape.webp', bgPortrait: '/images/engagement-bg-portrait.webp', bgPortraitX: '75%', cardSide: 'left', date: 'Sunday, 29 Nov 2026', time: 'Evening onwards', venue: gwalior, dress: 'Indo-Western Glam', start: '2026-11-29T18:00:00+05:30', end: '2026-11-29T23:00:00+05:30' },
     { name: 'Wedding Ceremony', hindi: 'शुभ विवाह', icon: '/images/events/icon-wedding.webp', bgLandscape: '/images/wedding-bg-landscape.webp', bgPortrait: '/images/wedding-bg-portrait.webp', bgPortraitX: '75%', cardSide: 'left', date: 'Monday, 30 Nov 2026', time: '8:00 PM onwards', venue: gwalior, dress: 'Traditional Ethnic', start: '2026-11-30T20:00:00+05:30', end: '2026-11-30T23:59:00+05:30' },
     { name: 'Reception', hindi: 'वर-वधू स्वागत समारोह', icon: '/images/events/icon-reception.webp', bgLandscape: '/images/reception-bg-landscape.webp', bgPortrait: '/images/reception-bg-portrait.webp', bgPortraitX: '55%', cardSide: 'left', date: 'Saturday, 5 Dec 2026', time: 'Evening onwards', venue: begusarai, dress: 'Festive Formal', start: '2026-12-05T19:00:00+05:30', end: '2026-12-05T23:00:00+05:30' },
   ],
   venues: [
-    { ...gwalior, label: 'Engagement · Sangeet · Wedding' },
+    { ...gwalior, label: 'Haldi · Engagement · Sangeet · Wedding' },
     { ...begusarai, label: 'Reception' },
   ],
   contacts: [
